@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareFuse - Transparent AI for Hip & Knee Prior Authorization</title>
+    <meta name="description" content="Clinical-grade AI for payer UM teams. Per-member clinical predictions with SHAP explanations, built for InterQual/MCG workflows and HL7 FHIR PAS.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link href="css/main-styles.css" rel="stylesheet">
+    <link href="css/components.css" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/carefuse-logo.png">
+</head>
+<body class="teal-theme">
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-animation">
+            <div class="medical-cross">
+                <div class="cross-vertical"></div>
+                <div class="cross-horizontal"></div>
+            </div>
+            <div class="loading-text">CareFuse</div>
+            <div class="loading-subtitle">Loading clinical platform...</div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">
+                <img src="images/carefuse-logo.png" alt="CareFuse" class="logo-icon">
+                <span class="brand-text">CareFuse</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#evidence">Evidence</a></li>
+                <li><a href="#platform">Platform</a></li>
+                <li><a href="#impact">Impact</a></li>
+                <li><a href="#references">References</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn btn-primary" onclick="openDemo()">Request Demo</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Transparent AI for Hip & Knee Prior Authorization</h1>
+                <p class="hero-subtitle">Per-member clinical predictions with SHAP explanations, built for InterQual/MCG workflows and HL7 FHIR PAS.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-number">93%</div>
+                        <div class="stat-label">Model AUC</div>
+                        <div class="stat-description">Clinical prediction accuracy for MCID achievement at 12 months</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="stat-number">FHIR</div>
+                        <div class="stat-label">PAS Ready</div>
+                        <div class="stat-description">Built for Da Vinci PAS workflows and ePA compliance by 2027</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="stat-number">SHAP</div>
+                        <div class="stat-label">Explainable</div>
+                        <div class="stat-description">Transparent AI with per-member clinical explanations</div>
+                    </div>
+                </div>
+                
+                <div class="hero-actions">
+                    <button class="btn btn-primary btn-large" onclick="openDemo()">
+                        <i class="fas fa-calendar-alt"></i>
+                        Request a Demo
+                    </button>
+                    <button class="btn btn-secondary btn-large" onclick="downloadSample()">
+                        <i class="fas fa-download"></i>
+                        See Sample Authorization Packet
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problem" class="problem-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Current Challenges</span>
+                <h2 class="section-title">The U.S. Prior Authorization Problem</h2>
+                <p class="section-description">Prior authorization is necessary but burdensome. Regulators push ePA and transparency by 2027, while clinical and financial risks continue to mount.</p>
+            </div>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="card-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>High-Cost Procedures</h3>
+                    <div class="cost-breakdown">
+                        <div class="cost-item">
+                            <span class="cost-label">Primary TKA</span>
+                            <span class="cost-value">≈ $24.5k</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="cost-label">Revision TKA</span>
+                            <span class="cost-value">≈ $43k</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="cost-label">Primary THA</span>
+                            <span class="cost-value">≈ $26k</span>
+                        </div>
+                        <div class="cost-item">
+                            <span class="cost-label">Revision THA</span>
+                            <span class="cost-value">≈ $53k</span>
+                        </div>
+                    </div>
+                    <p class="card-description">Revision surgeries cost nearly double, making accurate initial decisions critical for cost management.</p>
+                    <div class="citation">Source: U.S. cost benchmarks, PubMed studies</div>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="card-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Clinical Risks</h3>
+                    <div class="risk-stats">
+                        <div class="risk-item">
+                            <span class="risk-number">5.7%</span>
+                            <span class="risk-label">Serious Adverse Events</span>
+                        </div>
+                        <div class="risk-item">
+                            <span class="risk-number">4.8%</span>
+                            <span class="risk-label">30-day Readmissions</span>
+                        </div>
+                        <div class="risk-item">
+                            <span class="risk-number">~1%</span>
+                            <span class="risk-label">PJI within 12 months</span>
+                        </div>
+                    </div>
+                    <p class="card-description">After TKA, serious adverse events and readmissions are material risks that impact both patient outcomes and costs.</p>
+                    <div class="citation">Source: Papakostidis 2021, JAMA Network 2023</div>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="card-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>PA Process Burden</h3>
+                    <div class="process-flow">
+                        <div class="process-step">
+                            <span class="step-number">1</span>
+                            <span class="step-label">Nurse Review</span>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step">
+                            <span class="step-number">2</span>
+                            <span class="step-label">P2P Review</span>
+                        </div>
+                        <div class="process-arrow">→</div>
+                        <div class="process-step">
+                            <span class="step-number">3</span>
+                            <span class="step-label">Decision</span>
+                        </div>
+                    </div>
+                    <p class="card-description">Current PA workflows require consistent, defensible evidence. CMS-0057-F mandates ePA and transparency improvements by 2027.</p>
+                    <div class="citation">Source: CMS Interoperability & Prior Auth Final Rule</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="solution-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">CareFuse Solution</span>
+                <h2 class="section-title">Clinical Decision Support</h2>
+                <p class="section-description">Predict whether a member will achieve MCID (ΔWOMAC ≥ 10) at 12 months with transparent, explainable AI built for UM workflows.</p>
+            </div>
+            
+            <div class="solution-content">
+                <div class="case-study-card">
+                    <div class="case-header">
+                        <h3>Case Analysis - Sarah Johnson, 62 years</h3>
+                        <div class="prediction-result low-benefit">
+                            <span class="result-label">Prediction:</span>
+                            <span class="result-value">Low Benefit Likelihood</span>
+                        </div>
+                    </div>
+                    
+                    <div class="case-body">
+                        <div class="risk-factors">
+                            <h4>Risk Factors</h4>
+                            <div class="factor-grid">
+                                <div class="factor-item">
+                                    <span class="factor-label">Age</span>
+                                    <span class="factor-value high">High</span>
+                                </div>
+                                <div class="factor-item">
+                                    <span class="factor-label">BMI</span>
+                                    <span class="factor-value high">High</span>
+                                </div>
+                                <div class="factor-item">
+                                    <span class="factor-label">Comorbidities</span>
+                                    <span class="factor-value medium">Medium</span>
+                                </div>
+                                <div class="factor-item">
+                                    <span class="factor-label">Baseline WOMAC</span>
+                                    <span class="factor-value medium">Medium</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="shap-explanation">
+                            <h4>SHAP Explanation</h4>
+                            <div class="shap-chart">
+                                <div class="shap-bar">
+                                    <span class="shap-feature">Baseline WOMAC</span>
+                                    <div class="shap-bar-container">
+                                        <div class="shap-bar-fill negative" style="width: 60%"></div>
+                                    </div>
+                                    <span class="shap-value">-0.28</span>
+                                </div>
+                                <div class="shap-bar">
+                                    <span class="shap-feature">BMI</span>
+                                    <div class="shap-bar-container">
+                                        <div class="shap-bar-fill negative" style="width: 40%"></div>
+                                    </div>
+                                    <span class="shap-value">-0.19</span>
+                                </div>
+                                <div class="shap-bar">
+                                    <span class="shap-feature">Age</span>
+                                    <div class="shap-bar-container">
+                                        <div class="shap-bar-fill positive" style="width: 25%"></div>
+                                    </div>
+                                    <span class="shap-value">+0.12</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="clinical-rationale">
+                            <h4>Clinical Rationale</h4>
+                            <p><strong>Insufficient Clinical Benefit:</strong> The clinical prediction model indicates this member is unlikely to achieve clinically significant improvement (ΔWOMAC ≥ 10 points). Expected benefit insufficient to justify arthroplasty.</p>
+                            <p><strong>Cumulative Risks:</strong> Probability of complications (5.7%) + readmission (4.8%) + infection (1.1%) exceed expected benefit.</p>
+                            <p><strong>Recommendation:</strong> Consider conservative treatment with physical therapy and weight management before reconsidering surgical intervention.</p>
+                        </div>
+                        
+                        <div class="case-actions">
+                            <button class="btn btn-outline">Download PAS Bundle (FHIR)</button>
+                            <button class="btn btn-secondary">View Literature Snippets</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="solution-features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3>Decision Support</h3>
+                        <p>Not auto-denial—configurable thresholds aligned with plan policy. Human-in-the-loop review required for all decisions.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Workflow Integration</h3>
+                        <p>Built for InterQual/MCG workflows with HL7 FHIR PAS compatibility. Seamless integration with existing UM systems.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-medical"></i>
+                        </div>
+                        <h3>Complete Documentation</h3>
+                        <p>Predicted probability, risk narrative, literature snippets, and exportable FHIR bundles for comprehensive documentation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evidence Section -->
+    <section id="evidence" class="evidence-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Clinical Evidence</span>
+                <h2 class="section-title">Validation & Performance</h2>
+                <p class="section-description">Comprehensive validation with internal performance metrics and external clinical anchors.</p>
+            </div>
+            
+            <div class="evidence-panels">
+                <div class="evidence-panel">
+                    <h3>Internal Validation</h3>
+                    <div class="validation-metrics">
+                        <div class="metric-card">
+                            <div class="metric-value">93%</div>
+                            <div class="metric-label">AUC</div>
+                            <div class="metric-description">Area Under Curve from internal validation</div>
+                        </div>
+                        
+                        <div class="performance-table">
+                            <h4>Operating Points</h4>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Threshold</th>
+                                        <th>Sensitivity</th>
+                                        <th>Specificity</th>
+                                        <th>PPV</th>
+                                        <th>NPV</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Approve</td>
+                                        <td>95%</td>
+                                        <td>65%</td>
+                                        <td>78%</td>
+                                        <td>92%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pend</td>
+                                        <td>85%</td>
+                                        <td>80%</td>
+                                        <td>82%</td>
+                                        <td>83%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alternative</td>
+                                        <td>70%</td>
+                                        <td>90%</td>
+                                        <td>88%</td>
+                                        <td>74%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="subgroup-performance">
+                            <h4>Subgroup Performance</h4>
+                            <div class="subgroup-grid">
+                                <div class="subgroup-item">
+                                    <span class="subgroup-label">Female</span>
+                                    <span class="subgroup-auc">AUC: 0.94</span>
+                                </div>
+                                <div class="subgroup-item">
+                                    <span class="subgroup-label">Male</span>
+                                    <span class="subgroup-auc">AUC: 0.92</span>
+                                </div>
+                                <div class="subgroup-item">
+                                    <span class="subgroup-label">Age 50-65</span>
+                                    <span class="subgroup-auc">AUC: 0.95</span>
+                                </div>
+                                <div class="subgroup-item">
+                                    <span class="subgroup-label">Age 65+</span>
+                                    <span class="subgroup-auc">AUC: 0.91</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="validation-note">Internal validation; data and methods available on request</div>
+                </div>
+                
+                <div class="evidence-panel">
+                    <h3>External Clinical Anchors</h3>
+                    <div class="clinical-evidence">
+                        <div class="evidence-card">
+                            <div class="evidence-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h4>MCID Evidence</h4>
+                            <p>WOMAC ΔWOMAC ≥ 10 at 12 months represents clinically significant improvement in knee arthroplasty patients.</p>
+                            <div class="citation">Clement et al., 2018 - PMC</div>
+                        </div>
+                        
+                        <div class="evidence-card">
+                            <div class="evidence-icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <h4>Adverse Events</h4>
+                            <p>Systematic review of serious adverse events and 30-day readmissions following elective total knee arthroplasty.</p>
+                            <div class="citation">Papakostidis et al., 2021 - BioMed Central</div>
+                        </div>
+                        
+                        <div class="evidence-card">
+                            <div class="evidence-icon">
+                                <i class="fas fa-virus"></i>
+                            </div>
+                            <h4>Infection Risk</h4>
+                            <p>Periprosthetic joint infection incidence ~1% within 12 months, with significant cost and morbidity implications.</p>
+                            <div class="citation">JAMA Network Open, 2023</div>
+                        </div>
+                    </div>
+                    
+                    <div class="decision-curve">
+                        <h4>Decision Curve Analysis</h4>
+                        <div class="dca-chart">
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-line"></i>
+                                <p>Net Benefit vs Threshold Probability</p>
+                                <p class="chart-note">CareFuse model shows superior net benefit across clinically relevant threshold range</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Section -->
+    <section id="platform" class="platform-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Platform & Integration</span>
+                <h2 class="section-title">Authorization Plugin</h2>
+                <p class="section-description">Seamless integration with existing UM workflows through Da Vinci PAS and FHIR R4 compliance.</p>
+            </div>
+            
+            <div class="integration-diagram">
+                <div class="integration-flow">
+                    <div class="flow-step">
+                        <div class="step-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <div class="step-label">EHR/Portal</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="step-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="step-label">Da Vinci PAS</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step active">
+                        <div class="step-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="step-label">CareFuse</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div class="step-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="step-label">Payer System</div>
+                    </div>
+                </div>
+                <p class="integration-note">CareFuse creates clinical attachments and rationale within the standard PAS workflow</p>
+            </div>
+            
+            <div class="platform-features">
+                <div class="feature-grid">
+                    <div class="platform-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <h3>Versioned Model Card</h3>
+                        <p>Complete model documentation with version control and performance tracking</p>
+                    </div>
+                    
+                    <div class="platform-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h3>Audit Logs</h3>
+                        <p>Comprehensive audit trail for all predictions and decisions</p>
+                    </div>
+                    
+                    <div class="platform-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Data Provenance</h3>
+                        <p>Full traceability of data sources and processing steps</p>
+                    </div>
+                    
+                    <div class="platform-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Drift & Bias Monitoring</h3>
+                        <p>Continuous monitoring for model performance and fairness</p>
+                    </div>
+                    
+                    <div class="platform-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Role-Based Access</h3>
+                        <p>Granular permissions and access controls for different user roles</p>
+                    </div>
+                    
+                    <div class="platform-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>FHIR R4 Compliance</h3>
+                        <p>Generate FHIR R4 resources conformant with Da Vinci PAS (FHIR→X12 278)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compliance Section -->
+    <section class="compliance-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Compliance & Governance</span>
+                <h2 class="section-title">Regulatory Alignment</h2>
+                <p class="section-description">Built for healthcare compliance with comprehensive governance and audit capabilities.</p>
+            </div>
+            
+            <div class="compliance-grid">
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>HIPAA/BAA Compliance</h3>
+                    <ul>
+                        <li>Signed Business Associate Agreements</li>
+                        <li>At-rest and in-transit encryption</li>
+                        <li>Least-privilege access controls</li>
+                        <li>Comprehensive audit logging</li>
+                        <li>Breach response procedures</li>
+                    </ul>
+                </div>
+                
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>NAIC AI Bulletin Alignment</h3>
+                    <ul>
+                        <li>AIS Program support documentation</li>
+                        <li>Detailed model cards and validation reports</li>
+                        <li>Subgroup and fairness testing</li>
+                        <li>Continuous monitoring plans</li>
+                        <li>Vendor due-diligence packages</li>
+                    </ul>
+                </div>
+                
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>California AB-3030</h3>
+                    <p>For member-facing clinical communications to California residents:</p>
+                    <ul>
+                        <li>Required AI disclaimers and human contact instructions</li>
+                        <li>"Reviewed by licensed clinician" toggle to suppress disclaimers</li>
+                        <li>Compliance with GenAI patient communication requirements</li>
+                    </ul>
+                </div>
+                
+                <div class="compliance-card">
+                    <div class="compliance-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Colorado Readiness</h3>
+                    <p>Prepared for Colorado SB21-169 and SB24-205 requirements for plans operating in Colorado.</p>
+                </div>
+            </div>
+            
+            <div class="certification-badges">
+                <div class="badge">
+                    <i class="fas fa-certificate"></i>
+                    <span>HIPAA Compliant</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>SOC 2 Ready</span>
+                </div>
+                <div class="badge">
+                    <i class="fas fa-globe"></i>
+                    <span>ISO 27001 Ready</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact & ROI Section -->
+    <section id="impact" class="impact-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Impact & ROI</span>
+                <h2 class="section-title">Financial Impact Calculator</h2>
+                <p class="section-description">Estimate the financial impact of CareFuse on your utilization management operations.</p>
+            </div>
+            
+            <div class="roi-calculator">
+                <div class="calculator-inputs">
+                    <div class="input-group">
+                        <label for="monthly-volume">Monthly TKA/THA PA Volume</label>
+                        <input type="number" id="monthly-volume" value="150" min="1">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="approval-rate">Baseline Approval Rate (%)</label>
+                        <input type="range" id="approval-rate" min="60" max="95" value="85">
+                        <span class="range-value">85%</span>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="low-benefit">% Predicted Low Benefit</label>
+                        <input type="range" id="low-benefit" min="10" max="40" value="25">
+                        <span class="range-value">25%</span>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="episode-cost">Average Episode Cost ($)</label>
+                        <input type="number" id="episode-cost" value="25000" min="10000">
+                    </div>
+                </div>
+                
+                <div class="calculator-results">
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="result-value" id="avoided-surgeries">38</div>
+                        <div class="result-label">Avoided Surgeries/Year</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="result-value" id="medical-savings">$950,000</div>
+                        <div class="result-label">Annual Medical Savings</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="result-value" id="admin-savings">$75,000</div>
+                        <div class="result-label">Admin Savings</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="result-value" id="net-roi">$1,025,000</div>
+                        <div class="result-label">Net Annual ROI</div>
+                    </div>
+                </div>
+                
+                <div class="calculator-actions">
+                    <button class="btn btn-primary" onclick="downloadROI()">
+                        <i class="fas fa-download"></i>
+                        Download ROI Report (PDF)
+                    </button>
+                    <button class="btn btn-secondary" onclick="exportCSV()">
+                        <i class="fas fa-file-csv"></i>
+                        Export Data (CSV)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="section-container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Prior Authorization Process?</h2>
+                <p>See how CareFuse can improve your UM operations with transparent, evidence-based decision support.</p>
+                
+                <div class="cta-features">
+                    <div class="cta-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h3>30-Minute Demo</h3>
+                        <p>Personalized demonstration of CareFuse capabilities</p>
+                    </div>
+                    
+                    <div class="cta-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>ROI Analysis</h3>
+                        <p>Specific impact assessment for your operation</p>
+                    </div>
+                    
+                    <div class="cta-feature">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Pilot in 30 Days</h3>
+                        <p>Quick implementation with measurable outcomes</p>
+                    </div>
+                </div>
+                
+                <div class="pilot-deliverables">
+                    <h3>Pilot Deliverables</h3>
+                    <div class="deliverable-grid">
+                        <div class="deliverable-item">
+                            <i class="fas fa-user-check"></i>
+                            <span>UM reviewer satisfaction metrics</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Days-to-decision improvement</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <i class="fas fa-pause-circle"></i>
+                            <span>Pend rate reduction analysis</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <i class="fas fa-undo"></i>
+                            <span>Overturn rate tracking</span>
+                        </div>
+                        <div class="deliverable-item">
+                            <i class="fas fa-ban"></i>
+                            <span>Avoided surgeries quantification</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-actions">
+                    <button class="btn btn-primary btn-large" onclick="openDemo()">
+                        <i class="fas fa-calendar-alt"></i>
+                        Schedule Demo
+                    </button>
+                    <button class="btn btn-secondary btn-large" onclick="downloadSample()">
+                        <i class="fas fa-download"></i>
+                        Download Sample Packet
+                    </button>
+                </div>
+                
+                <p class="privacy-note">Your data is protected under HIPAA/BAA agreements</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="roadmap-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Strategic Vision</span>
+                <h2 class="section-title">Expanding Clinical Decision Support</h2>
+                <p class="section-description">CareFuse: comprehensive platform for evidence-based utilization management across orthopedic procedures.</p>
+            </div>
+            
+            <div class="roadmap-timeline">
+                <div class="timeline-item available">
+                    <div class="timeline-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Hip & Knee Arthroplasty</h3>
+                        <span class="timeline-status">Available Now</span>
+                        <p>Validated model with 93% AUC, preventing unnecessary procedures with transparent AI</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item upcoming">
+                    <div class="timeline-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Shoulder Arthroplasty</h3>
+                        <span class="timeline-status">Q2 2025</span>
+                        <p>Expanding predictive technology to shoulder replacement procedures</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item future">
+                    <div class="timeline-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Spinal Fusion</h3>
+                        <span class="timeline-status">2026</span>
+                        <p>Intelligent prediction for spinal arthrodesis procedures</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- References Section -->
+    <section id="references" class="references-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">Scientific References</span>
+                <h2 class="section-title">Clinical & Regulatory Citations</h2>
+            </div>
+            
+            <div class="references-grid">
+                <div class="reference-item">
+                    <div class="ref-number">1</div>
+                    <div class="ref-content">
+                        <p>CMS Interoperability & Prior Authorization Final Rule (CMS-0057-F): fact sheet & PDF.</p>
+                        <a href="#" class="ref-link">CMS.gov</a>
+                    </div>
+                </div>
+                
+                <div class="reference-item">
+                    <div class="ref-number">2</div>
+                    <div class="ref-content">
+                        <p>HL7 Da Vinci PAS Implementation Guide.</p>
+                        <a href="#" class="ref-link">FHIR Build</a>
+                    </div>
+                </div>
+                
+                <div class="reference-item">
+                    <div class="ref-number">3</div>
+                    <div class="ref-content">
+                        <p>NAIC Model AI Bulletin (AI governance expectations).</p>
+                        <a href="#" class="ref-link">NAIC</a>
+                    </div>
+                </div>
+                
+                <div class="reference-item">
+                    <div class="ref-number">4</div>
+                    <div class="ref-content">
+                        <p>California AB-3030 bill text / Medical Board summary.</p>
+                        <a href="#" class="ref-link">LegiScan / Medical Board of California</a>
+                    </div>
+                </div>
+                
+                <div class="reference-item">
+                    <div class="ref-number">5</div>
+                    <div class="ref-content">
+                        <p>AJRR annual report (context on U.S. hip/knee volumes).</p>
+                        <a href="#" class="ref-link">AAOS</a>
+                    </div>
+                </div>
+                
+                <div class="reference-item">
+                    <div class="ref-number">6</div>
+                    <div class="ref-content">
+                        <p>Papakostidis C, Giannoudis PV, Watson JT, et al. Serious adverse events and 30‑day hospital readmission following elective total knee arthroplasty: a systematic review and meta‑analysis. <em>J Orthop Surg Res</em>. 2021;16:236.</p>
+                        <a href="#" class="ref-link">BioMed Central</a>
+                    </div>
+                </div>
+                
+                <div class="reference-item">
+                    <div class="ref-number">7</div>
+                    <div class="ref-content">
+                        <p>PJI incidence within 12 months (JAMA Net Open 2023 / updated systematic evidence).</p>
+                        <a href="#" class="ref-link">JAMA Network</a>
+                    </div>
+                </div>
+                
+                <div class="reference-item">
+                    <div class="ref-number">8</div>
+                    <div class="ref-content">
+                        <p>Clement ND, et al. WOMAC MCID ≈ 10 at 12 months post-TKA.</p>
+                        <a href="#" class="ref-link">PMC</a>
+                    </div>
+                </div>
+                
+                <div class="reference-item">
+                    <div class="ref-number">9</div>
+                    <div class="ref-content">
+                        <p>U.S. costs: primary vs revision TKA/THA.</p>
+                        <a href="#" class="ref-link">PubMed</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="images/carefuse-logo.png" alt="CareFuse" class="footer-logo">
+                    <span class="footer-brand-text">CareFuse</span>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="#solution">Solution</a></li>
+                            <li><a href="#evidence">Evidence</a></li>
+                            <li><a href="#platform">Platform</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#careers">Careers</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#references">References</a></li>
+                            <li><a href="#documentation">Documentation</a></li>
+                            <li><a href="#support">Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <p>CareFuse provides decision support to assist licensed clinical reviewers; final coverage determinations are made by the plan's clinicians consistent with plan policies and applicable laws. For California members, AI-generated patient communications include AB-3030 notices or are clinician-reviewed.</p>
+                </div>
+                
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 CareFuse. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#privacy">Privacy Policy</a>
+                        <a href="#terms">Terms of Service</a>
+                        <a href="#hipaa">HIPAA Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MCID Tooltip -->
+    <div id="mcid-tooltip" class="tooltip">
+        <div class="tooltip-content">
+            <h4>MCID (Minimal Clinically Important Difference)</h4>
+            <p>The smallest change in a treatment outcome that a patient would identify as important. For WOMAC scores, ΔWOMAC ≥ 10 points represents meaningful clinical improvement.</p>
+        </div>
+    </div>
+
+    <!-- SHAP Tooltip -->
+    <div id="shap-tooltip" class="tooltip">
+        <div class="tooltip-content">
+            <h4>SHAP (SHapley Additive exPlanations)</h4>
+            <p>A method to explain individual predictions by computing the contribution of each feature to the prediction. Provides transparent, interpretable AI explanations.</p>
+        </div>
+    </div>
+
+    <!-- PAS Tooltip -->
+    <div id="pas-tooltip" class="tooltip">
+        <div class="tooltip-content">
+            <h4>PAS (Prior Authorization Support)</h4>
+            <p>HL7 FHIR implementation guide for electronic prior authorization workflows, enabling seamless integration between providers and payers.</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/calculator.js"></script>
+</body>
+</html>
+
