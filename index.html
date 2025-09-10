@@ -67,7 +67,7 @@
                         <div class="stat-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <div class="stat-number">93%</div>
+                        <div class="stat-number">87%</div>
                         <div class="stat-label">Model AUC</div>
                         <div class="stat-description">Clinical prediction accuracy for MCID achievement at 12 months</div>
                     </div>
@@ -205,73 +205,167 @@
             <div class="solution-content">
                 <div class="case-study-card">
                     <div class="case-header">
-                        <h3>Case Analysis - Sarah Johnson, 62 years</h3>
-                        <div class="prediction-result low-benefit">
-                            <span class="result-label">Prediction:</span>
-                            <span class="result-value">Low Benefit Likelihood</span>
-                        </div>
+                        <h3>Patient Profile</h3>
                     </div>
                     
                     <div class="case-body">
-                        <div class="risk-factors">
-                            <h4>Risk Factors</h4>
-                            <div class="factor-grid">
-                                <div class="factor-item">
-                                    <span class="factor-label">Age</span>
-                                    <span class="factor-value high">High</span>
+                        <div class="patient-profile-table">
+                            <table class="profile-table">
+                                <thead>
+                                    <tr>
+                                        <th>Feature</th>
+                                        <th>Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Age</td>
+                                        <td>74</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sex</td>
+                                        <td>F</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Body Mass Index (BMI)</td>
+                                        <td>Normal</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Baseline Pain & Function</td>
+                                        <td>15.6</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Baseline Pain</td>
+                                        <td>4.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Baseline Stiffness</td>
+                                        <td>1.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Baseline Disability</td>
+                                        <td>10.6</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lifestyle Modification</td>
+                                        <td>None</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="tka-explanation">
+                            <h4>About TKA Surgery</h4>
+                            <p><strong>Total knee arthroplasty (TKA) is an invasive surgery with risks and a lengthy recovery period. This software helps identify potentially ineffective surgeries before they occur to protect patient well-being.</strong></p>
+                        </div>
+                        
+                        <div class="prediction-sections">
+                            <div class="prediction-section tka-section">
+                                <div class="section-header-with-prediction">
+                                    <h4>TKA Success</h4>
+                                    <div class="prediction-result-box low-benefit-red">
+                                        Prediction: Low Benefit Likelihood
+                                    </div>
                                 </div>
-                                <div class="factor-item">
-                                    <span class="factor-label">BMI</span>
-                                    <span class="factor-value high">High</span>
+                                <div class="prediction-details">
+                                    <div class="prediction-probability">
+                                        <strong>Predicted Probability:</strong> 37%
+                                    </div>
+                                    <div class="probability-bar">
+                                        <div class="probability-fill" style="width: 37%"></div>
+                                    </div>
+                                    <div class="prediction-status success">
+                                        Clinically significant benefit predicted
+                                    </div>
+                                    <div class="prediction-summary">
+                                        <strong>Summary:</strong> The model estimates a 37% chance of success, with a cutoff of 21%. Your prediction is driven up by Body Mass Index (Índice de Massa Corporal (IMC)), but somewhat offset by Baseline Disability, Baseline Stiffness, Baseline Pain & Function.
+                                    </div>
+                                    
+                                    <div class="top-influencers">
+                                        <h5>Top Influencers</h5>
+                                        <div class="influencer-item">
+                                            <span class="influencer-name">Baseline Disability</span>
+                                            <span class="influencer-value negative">18%</span>
+                                            <span class="influencer-impact">hurts</span>
+                                        </div>
+                                        <div class="influencer-item">
+                                            <span class="influencer-name">Baseline Stiffness</span>
+                                            <span class="influencer-value negative">18%</span>
+                                            <span class="influencer-impact">hurts</span>
+                                        </div>
+                                        <div class="influencer-item">
+                                            <span class="influencer-name">Baseline Pain & Function</span>
+                                            <span class="influencer-value negative">15%</span>
+                                            <span class="influencer-impact">hurts</span>
+                                        </div>
+                                        <div class="influencer-item">
+                                            <span class="influencer-name">Body Mass Index (BMI)</span>
+                                            <span class="influencer-value positive">6%</span>
+                                            <span class="influencer-impact">helps</span>
+                                            <div class="influencer-note">Lower Body Mass Index (BMI) increases the chance of improvement.</div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="factor-item">
-                                    <span class="factor-label">Comorbidities</span>
-                                    <span class="factor-value medium">Medium</span>
+                            </div>
+                            
+                            <div class="prediction-section conservative-section">
+                                <div class="section-header-simple">
+                                    <h4>Conservative Success</h4>
                                 </div>
-                                <div class="factor-item">
-                                    <span class="factor-label">Baseline WOMAC</span>
-                                    <span class="factor-value medium">Medium</span>
+                                <div class="prediction-details">
+                                    <div class="prediction-probability">
+                                        <strong>Predicted Probability:</strong> 60%
+                                    </div>
+                                    <div class="probability-bar">
+                                        <div class="probability-fill conservative" style="width: 60%"></div>
+                                    </div>
+                                    <div class="prediction-status success">
+                                        Clinically significant benefit predicted
+                                    </div>
+                                    <div class="prediction-summary">
+                                        <strong>Summary:</strong> The model estimates a 60% chance of success, with a cutoff of 50%. Your prediction is driven up by Baseline Pain, Baseline Pain & Function, but somewhat offset by Lifestyle Modification.
+                                    </div>
+                                    
+                                    <div class="top-influencers">
+                                        <h5>Top Influencers</h5>
+                                        <div class="influencer-item">
+                                            <span class="influencer-name">Baseline Pain</span>
+                                            <span class="influencer-value positive">23%</span>
+                                            <span class="influencer-impact">helps</span>
+                                            <div class="influencer-note">Lower baseline pain increases your chance of success.</div>
+                                        </div>
+                                        <div class="influencer-item">
+                                            <span class="influencer-name">Baseline Pain & Function</span>
+                                            <span class="influencer-value positive">18%</span>
+                                            <span class="influencer-impact">helps</span>
+                                        </div>
+                                        <div class="influencer-item">
+                                            <span class="influencer-name">Baseline Disability</span>
+                                            <span class="influencer-value positive">16%</span>
+                                            <span class="influencer-impact">helps</span>
+                                        </div>
+                                        <div class="influencer-item">
+                                            <span class="influencer-name">Baseline Stiffness</span>
+                                            <span class="influencer-value positive">12%</span>
+                                            <span class="influencer-impact">helps</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="shap-explanation">
-                            <h4>SHAP Explanation</h4>
-                            <div class="shap-chart">
-                                <div class="shap-bar">
-                                    <span class="shap-feature">Baseline WOMAC</span>
-                                    <div class="shap-bar-container">
-                                        <div class="shap-bar-fill negative" style="width: 60%"></div>
-                                    </div>
-                                    <span class="shap-value">-0.28</span>
-                                </div>
-                                <div class="shap-bar">
-                                    <span class="shap-feature">BMI</span>
-                                    <div class="shap-bar-container">
-                                        <div class="shap-bar-fill negative" style="width: 40%"></div>
-                                    </div>
-                                    <span class="shap-value">-0.19</span>
-                                </div>
-                                <div class="shap-bar">
-                                    <span class="shap-feature">Age</span>
-                                    <div class="shap-bar-container">
-                                        <div class="shap-bar-fill positive" style="width: 25%"></div>
-                                    </div>
-                                    <span class="shap-value">+0.12</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="clinical-rationale">
-                            <h4>Clinical Rationale</h4>
-                            <p><strong>Insufficient Clinical Benefit:</strong> The clinical prediction model indicates this member is unlikely to achieve clinically significant improvement (ΔWOMAC ≥ 10 points). Expected benefit insufficient to justify arthroplasty.</p>
-                            <p><strong>Cumulative Risks:</strong> Probability of complications (5.7%) + readmission (4.8%) + infection (1.1%) exceed expected benefit.</p>
-                            <p><strong>Recommendation:</strong> Consider conservative treatment with physical therapy and weight management before reconsidering surgical intervention.</p>
+                        <div class="counterfactual-explanation">
+                            <h4>Counterfactual Analysis</h4>
+                            <p><strong>Propensity Score Weighting:</strong> Our model generates counterfactual predictions for conservative care using propensity-score weighting, allowing direct comparison between surgical and non-surgical treatment outcomes for informed decision-making.</p>
                         </div>
                         
                         <div class="case-actions">
-                            <button class="btn btn-outline">Download PAS Bundle (FHIR)</button>
-                            <button class="btn btn-secondary">View Literature Snippets</button>
+                            <button class="btn btn-primary">Download PDF</button>
+                            <button class="btn btn-secondary">Back</button>
+                        </div>
+                        
+                        <div class="contributing-factors">
+                            <p><strong>Main contributing factors</strong> List of features that most influence the predicted outcome.</p>
                         </div>
                     </div>
                 </div>
@@ -309,9 +403,9 @@
     <section id="evidence" class="evidence-section">
         <div class="section-container">
             <div class="section-header">
-                <span class="section-badge">Clinical Evidence</span>
+                <div class="section-badge">Clinical Evidence</div>
                 <h2 class="section-title">Validation & Performance</h2>
-                <p class="section-description">Comprehensive validation with internal performance metrics and external clinical anchors.</p>
+                <p class="section-description">At CareFuse, we've built a calibrated, explainable logistic-regression model (OAI: demographics + WOMAC) that estimates a TKA patient's probability of achieving MCID and generates a counterfactual for conservative care using propensity-score weighting. Across 50 multi-seed holdout splits it achieves AUC ≈ 0.87, with transparent calibration/thresholding and SHAP explanations suited for clinical review.</p>
             </div>
             
             <div class="evidence-panels">
@@ -319,7 +413,7 @@
                     <h3>Internal Validation</h3>
                     <div class="validation-metrics">
                         <div class="metric-card">
-                            <div class="metric-value">93%</div>
+                            <div class="metric-value">87%</div>
                             <div class="metric-label">AUC</div>
                             <div class="metric-description">Area Under Curve from internal validation</div>
                         </div>
@@ -415,6 +509,22 @@
                             <h4>Infection Risk</h4>
                             <p>Periprosthetic joint infection incidence ~1% within 12 months, with significant cost and morbidity implications.</p>
                             <div class="citation">JAMA Network Open, 2023</div>
+                        </div>
+                        
+                        <div class="evidence-card">
+                            <div class="evidence-icon">
+                                <i class="fas fa-globe-americas"></i>
+                            </div>
+                            <h4>Live Pilot Validation</h4>
+                            <p>We completed a live pilot with Hapvida (15.7M policyholders) to demonstrate feasibility and workflow integration. In the U.S., our pilot would train a new model on your de-identified data using the same pipeline and deploy a secure, metered API with audit logging.</p>
+                        </div>
+                        
+                        <div class="evidence-card">
+                            <div class="evidence-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h4>Regulatory Compliance</h4>
+                            <p>CareFuse is represented by Gunderson Dettmer, and our product is built under the FDA non-device CDS exemption, ensuring compliance with healthcare regulations.</p>
                         </div>
                     </div>
                     
@@ -780,7 +890,7 @@
                     <div class="timeline-content">
                         <h3>Hip & Knee Arthroplasty</h3>
                         <span class="timeline-status">Available Now</span>
-                        <p>Validated model with 93% AUC, preventing unnecessary procedures with transparent AI</p>
+                        <p>Validated model with 87% AUC, preventing unnecessary procedures with transparent AI</p>
                     </div>
                 </div>
                 

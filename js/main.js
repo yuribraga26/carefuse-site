@@ -374,9 +374,8 @@ function closeAllDropdowns() {
 
 // Demo and Contact Functions
 function openDemo() {
-    // In a real implementation, this would open a calendar booking widget
-    // For now, we'll show an alert
-    alert('Demo booking functionality would be integrated here. This would typically open a calendar widget like Calendly or similar booking system.');
+    // Open the Google Form for demo requests
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLSeo4sIiLHMBHe6ipAAWgywh0PBzCWwlSUVM0V5TMqvS1bha4Q/viewform?usp=header', '_blank');
     
     // Track the demo request
     trackEvent('demo_requested', {
