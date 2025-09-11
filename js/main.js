@@ -372,6 +372,7 @@ function closeAllDropdowns() {
     });
 }
 
+
 // Demo and Contact Functions
 function openDemo() {
     // Open the Google Form for demo requests

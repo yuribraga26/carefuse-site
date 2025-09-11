@@ -11,6 +11,7 @@ let calculatorData = {
     overturnRate: 15
 };
 
+
 // Initialize ROI Calculator
 function initializeROICalculator() {
     const calculator = document.querySelector('.roi-calculator');
