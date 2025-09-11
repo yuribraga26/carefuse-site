@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - CareFuse</title>
+    <link rel="stylesheet" href="css/main-styles.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="images/carefuse-logo.png" alt="CareFuse" class="logo-image">
+                    <span class="logo-text">CareFuse</span>
+                </a>
+            </div>
+            
+            <div class="nav-links">
+                <a href="index.html#problem" class="nav-link">Problem</a>
+                <a href="index.html#solution" class="nav-link">Solution</a>
+                <a href="index.html#evidence" class="nav-link">Evidence</a>
+                <a href="index.html#platform" class="nav-link">Platform</a>
+                <a href="index.html#impact" class="nav-link">Impact</a>
+                
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link dropdown-trigger">Company</a>
+                    <div class="dropdown-menu">
+                        <a href="careers.html" class="dropdown-item">Careers</a>
+                        <a href="contact.html" class="dropdown-item active">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link dropdown-trigger">Resources</a>
+                    <div class="dropdown-menu">
+                        <a href="index.html#references" class="dropdown-item">References</a>
+                        <a href="#" class="dropdown-item">Documentation</a>
+                        <a href="#" class="dropdown-item">Case Studies</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="btn btn-primary" onclick="openDemo()">Request Demo</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="contact-page">
+        <section class="page-hero">
+            <div class="section-container">
+                <div class="page-header">
+                    <h1 class="page-title">Contact CareFuse</h1>
+                    <p class="page-subtitle">We want to hear about your challenges and find out how we can help you improve prior authorization outcomes</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-content">
+            <div class="section-container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Let's Discuss Your Needs</h2>
+                        <p>Every healthcare organization faces unique challenges with prior authorization. We're here to understand your specific pain points and explore how CareFuse can help you achieve better outcomes for your members.</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="method-content">
+                                    <h3>Email</h3>
+                                    <p>yuri.braga@carefuseai.com</p>
+                                    <span class="method-note">We typically respond within 24 hours</span>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="method-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <div class="method-content">
+                                    <h3>Schedule a Demo</h3>
+                                    <p>See CareFuse in action with your own data scenarios</p>
+                                    <button class="btn btn-primary" onclick="openDemo()">
+                                        <i class="fas fa-play"></i>
+                                        Request Demo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="help-areas">
+                            <h3>How We Can Help</h3>
+                            <div class="help-grid">
+                                <div class="help-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <h4>Reduce Unnecessary Procedures</h4>
+                                    <p>Identify low-benefit cases before they become costly complications</p>
+                                </div>
+                                
+                                <div class="help-item">
+                                    <i class="fas fa-clock"></i>
+                                    <h4>Streamline PA Workflows</h4>
+                                    <p>Integrate transparent AI into your existing utilization management processes</p>
+                                </div>
+                                
+                                <div class="help-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <h4>Ensure Compliance</h4>
+                                    <p>Meet emerging regulatory requirements for AI transparency and physician oversight</p>
+                                </div>
+                                
+                                <div class="help-item">
+                                    <i class="fas fa-users"></i>
+                                    <h4>Improve Member Outcomes</h4>
+                                    <p>Help members make informed decisions about their treatment options</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-section">
+                        <div class="form-container">
+                            <h2>Tell Us About Your Challenges</h2>
+                            <p>Share your current prior authorization pain points and we'll explore how CareFuse can address them.</p>
+                            
+                            <form class="contact-form" action="#" method="POST">
+                                <div class="form-group">
+                                    <label for="name">Name *</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="organization">Organization *</label>
+                                    <input type="text" id="organization" name="organization" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="role">Role</label>
+                                    <select id="role" name="role">
+                                        <option value="">Select your role</option>
+                                        <option value="medical-director">Medical Director</option>
+                                        <option value="um-director">UM Director</option>
+                                        <option value="clinical-reviewer">Clinical Reviewer</option>
+                                        <option value="it-director">IT Director</option>
+                                        <option value="executive">Executive</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="volume">Monthly TKA/THA PA Volume</label>
+                                    <select id="volume" name="volume">
+                                        <option value="">Select volume range</option>
+                                        <option value="0-50">0-50 cases</option>
+                                        <option value="51-100">51-100 cases</option>
+                                        <option value="101-250">101-250 cases</option>
+                                        <option value="251-500">251-500 cases</option>
+                                        <option value="500+">500+ cases</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="challenges">Current PA Challenges *</label>
+                                    <textarea id="challenges" name="challenges" rows="4" placeholder="Tell us about your current prior authorization challenges, pain points, or goals..." required></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="timeline">Implementation Timeline</label>
+                                    <select id="timeline" name="timeline">
+                                        <option value="">Select timeline</option>
+                                        <option value="immediate">Immediate need</option>
+                                        <option value="3-months">Within 3 months</option>
+                                        <option value="6-months">Within 6 months</option>
+                                        <option value="12-months">Within 12 months</option>
+                                        <option value="exploring">Just exploring options</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-paper-plane"></i>
+                                        Send Message
+                                    </button>
+                                    <p class="form-note">We'll respond within 24 hours to discuss your needs</p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/carefuse-logo.png" alt="CareFuse" class="footer-logo-image">
+                        <span class="footer-logo-text">CareFuse</span>
+                    </div>
+                    <p class="footer-description">Transparent AI for evidence-based prior authorization in orthopedic care.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#references">References</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>yuri.braga@carefuseai.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 CareFuse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+

@@ -32,33 +32,43 @@
             <div class="loading-text">CareFuse</div>
             <div class="loading-subtitle">Loading clinical platform...</div>
         </div>
-    </div>
-
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="brand-logo">
-                <img src="images/carefuse-logo.png" alt="CareFuse" class="logo-icon">
-                <span class="brand-text">CareFuse</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#problem">Problem</a></li>
-                <li><a href="#solution">Solution</a></li>
-                <li><a href="#evidence">Evidence</a></li>
-                <li><a href="#platform">Platform</a></li>
-                <li><a href="#impact">Impact</a></li>
-                <li><a href="#references">References</a></li>
-            </ul>
-            <div class="nav-actions">
-                <button class="btn btn-primary" onclick="openDemo()">Request Demo</button>
+    <        <nav class="main-nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/carefuse-logo.png" alt="CareFuse" class="logo-image">
+                    <span class="logo-text">CareFuse</span>
+                </div>
+                
+                <div class="nav-links">
+                    <a href="#problem" class="nav-link">Problem</a>
+                    <a href="#solution" class="nav-link">Solution</a>
+                    <a href="#evidence" class="nav-link">Evidence</a>
+                    <a href="#platform" class="nav-link">Platform</a>
+                    <a href="#impact" class="nav-link">Impact</a>
+                    
+                    <div class="nav-dropdown">
+                        <a href="#" class="nav-link dropdown-trigger">Company</a>
+                        <div class="dropdown-menu">
+                            <a href="careers.html" class="dropdown-item">Careers</a>
+                            <a href="contact.html" class="dropdown-item">Contact</a>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-dropdown">
+                        <a href="#" class="nav-link dropdown-trigger">Resources</a>
+                        <div class="dropdown-menu">
+                            <a href="#references" class="dropdown-item">References</a>
+                            <a href="#" class="dropdown-item">Documentation</a>
+                            <a href="#" class="dropdown-item">Case Studies</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openDemo()">Request Demo</button>
+                </div>
             </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-container">
-            <div class="hero-content">
+        </nav>ss="hero-content">
                 <h1 class="hero-title">Transparent AI for Hip & Knee Prior Authorization</h1>
                 <p class="hero-subtitle">Per-member clinical predictions with SHAP explanations, built for InterQual/MCG workflows and HL7 FHIR PAS.</p>
                 
@@ -76,9 +86,9 @@
                         <div class="stat-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <div class="stat-number">FHIR</div>
-                        <div class="stat-label">PAS Ready</div>
-                        <div class="stat-description">Built for Da Vinci PAS workflows and ePA compliance by 2027</div>
+                        <div class="stat-number">Counterfactual Prediction</div>
+                        <div class="stat-label">Encourages Conservative Care</div>
+                        <div class="stat-description">Counterfactual predictions identify cases unlikely to benefit from surgery and promote conservative care to avoid ineffective invasive procedures.</div>
                     </div>
                     
                     <div class="stat-card">
@@ -448,41 +458,46 @@
                         </div>
                         
                         <div class="performance-table">
-                            <h4>Operating Points</h4>
+                            <h4>Multi-seed Holdout Validation</h4>
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Threshold</th>
-                                        <th>Sensitivity</th>
-                                        <th>Specificity</th>
-                                        <th>PPV</th>
-                                        <th>NPV</th>
+                                        <th>Metric</th>
+                                        <th>TKA Model</th>
+                                        <th>Conservative Model</th>
+                                        <th>Confidence Interval</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Approve</td>
-                                        <td>95%</td>
-                                        <td>65%</td>
-                                        <td>78%</td>
-                                        <td>92%</td>
+                                        <td>AUC</td>
+                                        <td>87.1%</td>
+                                        <td>79.7%</td>
+                                        <td>79.5-93.3%</td>
                                     </tr>
                                     <tr>
-                                        <td>Pend</td>
-                                        <td>85%</td>
-                                        <td>80%</td>
-                                        <td>82%</td>
-                                        <td>83%</td>
+                                        <td>Accuracy</td>
+                                        <td>74.3%</td>
+                                        <td>73.4%</td>
+                                        <td>63.7-83.5%</td>
                                     </tr>
                                     <tr>
-                                        <td>Alternative</td>
-                                        <td>70%</td>
-                                        <td>90%</td>
-                                        <td>88%</td>
-                                        <td>74%</td>
+                                        <td>Sensitivity</td>
+                                        <td>81.0%</td>
+                                        <td>93.9%</td>
+                                        <td>69.9-96.7%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Specificity</td>
+                                        <td>63.6%</td>
+                                        <td>59.6%</td>
+                                        <td>44.0-80.8%</td>
                                     </tr>
                                 </tbody>
                             </table>
+                            <div class="validation-note">
+                                <p><strong>Clinical Significance:</strong> 81% sensitivity ensures most successful TKA candidates are correctly identified, while 64% specificity helps avoid unnecessary procedures. Conservative model shows 94% sensitivity for identifying patients who will benefit from non-surgical treatment.</p>
+                            </div>
                         </div>
                         
                         <div class="subgroup-performance">
@@ -827,7 +842,6 @@
         </div>
     </section>
 
-    
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="section-container">
