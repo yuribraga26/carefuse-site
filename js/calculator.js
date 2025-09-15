@@ -24,18 +24,6 @@ function initializeROICalculator() {
         episodeCost: document.getElementById('episode-cost')
     };
     
-    // Sync initial DOM input values into calculatorData so initial calculation
-    // and displays use the actual values shown in the inputs (prevents
-    // mismatches where formatted suffixes like "M"/"k" only appear after
-    // the user first interacts with a control).
-    Object.entries(inputs).forEach(([key, input]) => {
-        if (input) {
-            // Use the current input.value if present; fall back to existing state
-            const v = parseFloat(input.value);
-            if (!Number.isNaN(v)) calculatorData[key] = v;
-        }
-    });
-
     // Initialize range value displays
     updateRangeDisplays();
     
@@ -510,7 +498,11 @@ function runSensitivityAnalysis() {
     return sensitivity;
 }
 
-// Note: initialization is triggered from main.js to keep startup centralized.
+// Initialize calculator when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Small delay to ensure main.js has initialized
+    setTimeout(initializeROICalculator, 100);
+});
 
 // Export functions for global access
 window.ROICalculator = {
