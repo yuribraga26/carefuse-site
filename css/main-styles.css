@@ -1970,3 +1970,87 @@ body {
     }
 }
 
+/* Main Content Loading States */
+.main-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.main-content.loaded {
+    display: block;
+    opacity: 1;
+}
+
+/* Loading Screen Improvements */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-teal) 0%, #2A9999 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out;
+}
+
+.loading-animation {
+    text-align: center;
+    color: white;
+}
+
+.medical-cross {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    margin: 0 auto 2rem;
+    animation: pulse 2s infinite;
+}
+
+.cross-vertical,
+.cross-horizontal {
+    background: white;
+    position: absolute;
+    border-radius: 4px;
+}
+
+.cross-vertical {
+    width: 8px;
+    height: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cross-horizontal {
+    width: 60px;
+    height: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.loading-text {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+}
+
+.loading-subtitle {
+    font-size: 1rem;
+    opacity: 0.8;
+    animation: fadeInOut 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 0.4; }
+}
+

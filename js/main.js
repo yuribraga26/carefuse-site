@@ -36,10 +36,14 @@ function initializeWebsite() {
 // Loading Screen Functions
 function hideLoadingScreen() {
     const loadingScreen = document.getElementById('loading-screen');
-    if (loadingScreen) {
+    const mainContent = document.getElementById('main-content');
+    
+    if (loadingScreen && mainContent) {
         loadingScreen.style.opacity = '0';
         setTimeout(() => {
             loadingScreen.style.display = 'none';
+            mainContent.style.display = 'block';
+            mainContent.style.opacity = '1';
             isLoading = false;
         }, 500);
     }
