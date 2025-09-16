@@ -1194,10 +1194,11 @@
 }
 
 .conservative-item .stat-number {
-    font-size: 2.25rem; /* large teal heading */
-    font-weight: 800;
+    /* match other columns' stat-number sizing to keep columns consistent */
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--primary-teal);
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.25rem;
 }
 
 .conservative-item .stat-number {
@@ -1206,10 +1207,10 @@
 }
 
 .conservative-item .stat-label {
-    font-weight: 700; /* bold subtitle */
+    font-weight: 600; /* match other columns */
     color: var(--text-primary);
     margin-bottom: 0.25rem;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .conservative-item .stat-description {
@@ -1729,6 +1730,12 @@
     gap: 0.75rem;
 }
 
+.logo-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
 .logo-image {
     height: 32px;
     width: auto;
@@ -1813,14 +1820,22 @@
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--text-dark);
-    color: white;
+    background: var(--primary-teal);
+    color: #fff;
     padding: 0.5rem 1rem;
     border-radius: 6px;
     font-size: 0.875rem;
     white-space: nowrap;
     z-index: 1000;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensure conservative column stat boxes match height and layout of other columns */
+.problem-card .conservative-stats .conservative-item {
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* Validation Highlights */
