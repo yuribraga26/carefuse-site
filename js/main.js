@@ -167,37 +167,58 @@ function initializeAnimations() {
 }
 
 function animateCounter(element) {
-    const target = element.textContent.replace(/[^0-9.]/g, '');
-    const targetNumber = parseFloat(target);
-    
+    const originalText = element.textContent.trim();
+
+    // Detect formats and suffixes
+    const isPercent = originalText.includes('%');
+    const isCurrency = originalText.includes('$');
+    const hasK = /k/i.test(originalText);
+    const hasM = /M/.test(originalText);
+
+    // Extract numeric portion
+    const numericPart = originalText.replace(/[^0-9.]/g, '');
+    let targetNumber = parseFloat(numericPart);
     if (isNaN(targetNumber)) return;
-    
+
+    // Scale according to suffix when present (so "$7.3M" -> 7.3 * 1e6)
+    if (isCurrency) {
+        if (hasM) targetNumber = targetNumber * 1e6;
+        else if (hasK) targetNumber = targetNumber * 1e3;
+    }
+
     const duration = 2000;
     const startTime = performance.now();
     const startValue = 0;
-    
+
     function updateCounter(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        
+
         const currentValue = startValue + (targetNumber - startValue) * easeOutQuart(progress);
-        
-        // Format the number based on original format
-        if (element.textContent.includes('%')) {
+
+        // Render according to detected format
+        if (isPercent) {
             element.textContent = Math.round(currentValue) + '%';
-        } else if (element.textContent.includes('$')) {
-            element.textContent = '$' + formatNumber(Math.round(currentValue));
-        } else if (element.textContent.includes('k')) {
-            element.textContent = '≈ $' + Math.round(currentValue) + 'k';
+        } else if (isCurrency) {
+            // Use the global formatCurrency (defined in calculator.js) if available
+            try {
+                element.textContent = formatCurrency(Math.round(currentValue));
+            } catch (e) {
+                // Fallback
+                element.textContent = '$' + formatNumber(Math.round(currentValue));
+            }
+        } else if (hasK) {
+            const valueInK = Math.round(currentValue / 1000);
+            element.textContent = '≈ ' + formatNumber(valueInK) + 'k';
         } else {
             element.textContent = Math.round(currentValue);
         }
-        
+
         if (progress < 1) {
             requestAnimationFrame(updateCounter);
         }
     }
-    
+
     requestAnimationFrame(updateCounter);
 }
 

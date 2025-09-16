@@ -1200,6 +1200,11 @@
     margin-bottom: 0.25rem;
 }
 
+.conservative-item .stat-number {
+    white-space: pre-line; /* honor line breaks like <br> */
+    line-height: 1.1;
+}
+
 .conservative-item .stat-label {
     font-weight: 600;
     color: var(--text-primary);

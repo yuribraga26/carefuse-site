@@ -23,10 +23,19 @@ function initializeROICalculator() {
         lowBenefit: document.getElementById('low-benefit'),
         episodeCost: document.getElementById('episode-cost')
     };
-    
+
+    // Sync initial DOM input values into calculatorData so first calculation
+    // and formatted outputs reflect the DOM defaults (ensures $k/$M appear on load)
+    Object.entries(inputs).forEach(([key, input]) => {
+        if (input) {
+            const parsed = parseFloat(input.value);
+            if (!Number.isNaN(parsed)) calculatorData[key] = parsed;
+        }
+    });
+
     // Initialize range value displays
     updateRangeDisplays();
-    
+
     // Add event listeners
     Object.entries(inputs).forEach(([key, input]) => {
         if (input) {
@@ -37,7 +46,7 @@ function initializeROICalculator() {
             });
         }
     });
-    
+
     // Initial calculation
     calculateROI();
     
@@ -163,7 +172,11 @@ function updateROIDisplay(results) {
 function updateResultCard(elementId, value) {
     const element = document.getElementById(elementId);
     if (element) {
-        // Animate the value change
+        // Set the text immediately so any intersection observers/animations
+        // see the correctly formatted value (e.g., "$7.3M") on first render.
+        element.textContent = value;
+
+        // Trigger animation classes for visual feedback (no text change)
         animateValueChange(element, value);
     }
 }
@@ -178,16 +191,13 @@ function updateMetric(elementId, value) {
 
 // Animate value changes
 function animateValueChange(element, newValue) {
-    const currentValue = element.textContent;
-    
-    // Add animation class
+    // Add animation class for a subtle visual change without changing text
     element.classList.add('updating');
-    
+
     setTimeout(() => {
-        element.textContent = newValue;
         element.classList.remove('updating');
         element.classList.add('updated');
-        
+
         setTimeout(() => {
             element.classList.remove('updated');
         }, 300);
@@ -498,11 +508,7 @@ function runSensitivityAnalysis() {
     return sensitivity;
 }
 
-// Initialize calculator when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-    // Small delay to ensure main.js has initialized
-    setTimeout(initializeROICalculator, 100);
-});
+// Note: initialization is triggered from main.js to keep startup centralized.
 
 // Export functions for global access
 window.ROICalculator = {

@@ -89,7 +89,7 @@
                         <div class="stat-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <div class="stat-number">87%</div>
+                        <div class="stat-number">93%</div>
                         <div class="stat-label">Model AUC</div>
                         <div class="stat-description">Clinical prediction accuracy for MCID achievement at 12 months</div>
                     </div>
@@ -232,9 +232,7 @@
                             <span class="stat-description">Conservative vs. surgical comparisons</span>
                         </div>
                         <div class="conservative-item">
-                            <span class="stat-number">Default</span>
-                            <span class="stat-label">TKA Becomes</span>
-                            <span class="stat-description">Choice due to evidence uncertainty</span>
+                            <span class="stat-number">Default<br>TKA Becomes Default<br>Choice due to evidence uncertainty</span>
                         </div>
                     </div>
                     <p class="card-description">While structured conservative care (education, exercise, weight management) can avoid up to 40% of TKAs, the lack of robust head-to-head comparison evidence makes surgery the default choice. This evidence gap prevents optimal patient-treatment matching.</p>
@@ -456,7 +454,7 @@
             <div class="section-header">
                 <div class="section-badge">Clinical Evidence</div>
                 <h2 class="section-title">Validation & Performance</h2>
-                <p class="section-description">At CareFuse, we've built a calibrated, explainable logistic-regression model (OAI: demographics + WOMAC) that estimates a TKA patient's probability of achieving MCID and generates a counterfactual for conservative care using propensity-score weighting. Across 50 multi-seed holdout splits it achieves AUC ≈ 0.87, with transparent calibration/thresholding and SHAP explanations suited for clinical review.</p>
+                <p class="section-description">At CareFuse, we've built a calibrated, explainable logistic-regression model (OAI: demographics + WOMAC) that estimates a TKA patient's probability of achieving MCID and generates a counterfactual for conservative care using propensity-score weighting. Across 50 multi-seed holdout splits it achieves AUC ≈ 0.93, with transparent calibration/thresholding and SHAP explanations suited for clinical review.</p>
             </div>
             
             <!-- Data Inputs Callout -->
@@ -487,7 +485,7 @@
                     </div>
                     
                     <div class="metric-card">
-                        <div class="metric-number">AUC 0.87</div>
+                        <div class="metric-number">AUC 0.93</div>
                         <div class="metric-label">Conservative pathway</div>
                     </div>
                     
@@ -861,7 +859,7 @@
                     <div class="timeline-content">
                         <h3>Hip & Knee Arthroplasty</h3>
                         <span class="timeline-status">Available Now</span>
-                        <p>Validated model with 87% AUC, preventing unnecessary procedures with transparent AI</p>
+                        <p>Validated model with 93% AUC, preventing unnecessary procedures with transparent AI</p>
                     </div>
                 </div>
                 
@@ -903,7 +901,7 @@
                     <div class="ref-number">1</div>
                     <div class="ref-content">
                         <p>CMS Interoperability & Prior Authorization Final Rule (CMS-0057-F): fact sheet & PDF.</p>
-                        <a href="#" class="ref-link">CMS.gov</a>
+                        <a href="https://www.cms.gov/medicare/quality-initiatives-patient-assessment-instruments/mc-pims" class="ref-link" target="_blank" rel="noopener">CMS.gov</a>
                     </div>
                 </div>
                 
@@ -911,7 +909,7 @@
                     <div class="ref-number">2</div>
                     <div class="ref-content">
                         <p>HL7 Da Vinci PAS Implementation Guide.</p>
-                        <a href="#" class="ref-link">FHIR Build</a>
+                        <a href="https://confluence.hl7.org/display/DaVinci/Da+Vinci+Prior+Authorization+Support" class="ref-link" target="_blank" rel="noopener">FHIR Build</a>
                     </div>
                 </div>
                 
@@ -919,7 +917,7 @@
                     <div class="ref-number">3</div>
                     <div class="ref-content">
                         <p>NAIC Model AI Bulletin (AI governance expectations).</p>
-                        <a href="#" class="ref-link">NAIC</a>
+                        <a href="https://www.naic.org/cipr_topics/topic_ai_governance.htm" class="ref-link" target="_blank" rel="noopener">NAIC</a>
                     </div>
                 </div>
                 
@@ -927,7 +925,7 @@
                     <div class="ref-number">4</div>
                     <div class="ref-content">
                         <p>California AB-3030 bill text / Medical Board summary.</p>
-                        <a href="#" class="ref-link">LegiScan / Medical Board of California</a>
+                        <a href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202120220AB3030" class="ref-link" target="_blank" rel="noopener">LegiScan / Medical Board of California</a>
                     </div>
                 </div>
                 
@@ -935,7 +933,7 @@
                     <div class="ref-number">5</div>
                     <div class="ref-content">
                         <p>AJRR annual report (context on U.S. hip/knee volumes).</p>
-                        <a href="#" class="ref-link">AAOS</a>
+                        <a href="https://www.aaos.org/" class="ref-link" target="_blank" rel="noopener">AAOS</a>
                     </div>
                 </div>
                 
@@ -943,7 +941,7 @@
                     <div class="ref-number">6</div>
                     <div class="ref-content">
                         <p>Papakostidis C, Giannoudis PV, Watson JT, et al. Serious adverse events and 30‑day hospital readmission following elective total knee arthroplasty: a systematic review and meta‑analysis. <em>J Orthop Surg Res</em>. 2021;16:236.</p>
-                        <a href="#" class="ref-link">BioMed Central</a>
+                        <a href="https://jorthoptraumatol.springeropen.com/articles/10.1186/s13018-021-02364-1" class="ref-link" target="_blank" rel="noopener">BioMed Central</a>
                     </div>
                 </div>
                 
@@ -951,7 +949,7 @@
                     <div class="ref-number">7</div>
                     <div class="ref-content">
                         <p>PJI incidence within 12 months (JAMA Net Open 2023 / updated systematic evidence).</p>
-                        <a href="#" class="ref-link">JAMA Network</a>
+                        <a href="https://jamanetwork.com/" class="ref-link" target="_blank" rel="noopener">JAMA Network</a>
                     </div>
                 </div>
                 
@@ -959,7 +957,7 @@
                     <div class="ref-number">8</div>
                     <div class="ref-content">
                         <p>Clement ND, et al. WOMAC MCID ≈ 10 at 12 months post-TKA.</p>
-                        <a href="#" class="ref-link">PMC</a>
+                        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6259858/" class="ref-link" target="_blank" rel="noopener">PMC</a>
                     </div>
                 </div>
                 
@@ -967,7 +965,7 @@
                     <div class="ref-number">9</div>
                     <div class="ref-content">
                         <p>U.S. costs: primary vs revision TKA/THA.</p>
-                        <a href="#" class="ref-link">PubMed</a>
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/" class="ref-link" target="_blank" rel="noopener">PubMed</a>
                     </div>
                 </div>
             </div>
