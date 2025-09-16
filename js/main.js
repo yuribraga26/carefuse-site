@@ -653,3 +653,38 @@ window.CareFuse = {
     navigateToResult
 };
 
+
+// Mobile Menu Toggle
+function toggleMobileMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('mobile-open');
+}
+
+// Smooth scroll to methods section
+function scrollToMethods() {
+    const methodsSection = document.getElementById('methods');
+    if (methodsSection) {
+        methodsSection.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+// Initialize methods link
+function initializeMethodsLink() {
+    const methodsLink = document.querySelector('.see-methods-link');
+    if (methodsLink) {
+        methodsLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            scrollToMethods();
+        });
+    }
+}
+
+// Update initialization to include new functions
+document.addEventListener('DOMContentLoaded', function() {
+    initializeWebsite();
+    initializeMethodsLink();
+});
+

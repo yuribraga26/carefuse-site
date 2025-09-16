@@ -39,7 +39,7 @@
         <nav class="main-nav">
             <div class="nav-container">
                 <div class="nav-logo">
-                    <img src="images/carefuse-logo.png" alt="CareFuse" class="logo-image">
+                    <img src="/images/carefuse-logo.png" alt="CareFuse" class="logo-image">
                     <span class="logo-text">CareFuse</span>
                 </div>
                 
@@ -70,6 +70,9 @@
                 
                 <div class="nav-actions">
                     <button class="btn btn-primary" onclick="openDemo()">Request Demo</button>
+                    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
             </div>
         </nav>
@@ -456,141 +459,56 @@
                 <p class="section-description">At CareFuse, we've built a calibrated, explainable logistic-regression model (OAI: demographics + WOMAC) that estimates a TKA patient's probability of achieving MCID and generates a counterfactual for conservative care using propensity-score weighting. Across 50 multi-seed holdout splits it achieves AUC ≈ 0.87, with transparent calibration/thresholding and SHAP explanations suited for clinical review.</p>
             </div>
             
-            <div class="evidence-panels">
-                <div class="evidence-panel">
-                    <h3>Internal Validation</h3>
-                    <div class="validation-metrics">
-                        <div class="metric-card">
-                            <div class="metric-value">87%</div>
-                            <div class="metric-label">AUC</div>
-                            <div class="metric-description">Area Under Curve from internal validation</div>
-                        </div>
-                        
-                        <div class="performance-table">
-                            <h4>Multi-seed Holdout Validation</h4>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Metric</th>
-                                        <th>TKA Model</th>
-                                        <th>Conservative Model</th>
-                                        <th>Confidence Interval</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>AUC</td>
-                                        <td>87.1%</td>
-                                        <td>79.7%</td>
-                                        <td>79.5-93.3%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Accuracy</td>
-                                        <td>74.3%</td>
-                                        <td>73.4%</td>
-                                        <td>63.7-83.5%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Sensitivity</td>
-                                        <td>81.0%</td>
-                                        <td>93.9%</td>
-                                        <td>69.9-96.7%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Specificity</td>
-                                        <td>63.6%</td>
-                                        <td>59.6%</td>
-                                        <td>44.0-80.8%</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div class="validation-note">
-                                <p><strong>Clinical Significance:</strong> 81% sensitivity ensures most successful TKA candidates are correctly identified, while 64% specificity helps avoid unnecessary procedures. Conservative model shows 94% sensitivity for identifying patients who will benefit from non-surgical treatment.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="subgroup-performance">
-                            <h4>Subgroup Performance</h4>
-                            <div class="subgroup-grid">
-                                <div class="subgroup-item">
-                                    <span class="subgroup-label">Female</span>
-                                    <span class="subgroup-auc">AUC: 0.89</span>
-                                </div>
-                                <div class="subgroup-item">
-                                    <span class="subgroup-label">Male</span>
-                                    <span class="subgroup-auc">AUC: 0.85</span>
-                                </div>
-                                <div class="subgroup-item">
-                                    <span class="subgroup-label">Age 50-65</span>
-                                    <span class="subgroup-auc">AUC: 0.88</span>
-                                </div>
-                                <div class="subgroup-item">
-                                    <span class="subgroup-label">Age 65+</span>
-                                    <span class="subgroup-auc">AUC: 0.84</span>
-                                </div>
-                            </div>
-                        </div>
+            <!-- Data Inputs Callout -->
+            <div class="data-inputs-callout">
+                <div class="callout-card">
+                    <div class="callout-icon">
+                        <i class="fas fa-clipboard-list"></i>
                     </div>
-                    <div class="validation-note">Internal validation; data and methods available on request</div>
+                    <div class="callout-content">
+                        <h3>How we generate a prediction</h3>
+                        <p>This tool can generate a personalized prediction using information the patient can readily provide (basic demographics and medical history) together with responses to an internationally validated arthritis questionnaire <span class="info-tooltip" data-tooltip="Refers to widely used instruments in osteoarthritis research and clinical practice"><i class="fas fa-info-circle"></i></span>. No imaging or specialized tests are required for the demo.</p>
+                    </div>
                 </div>
-                
-                <div class="evidence-panel">
-                    <h3>External Clinical Anchors</h3>
-                    <div class="clinical-evidence">
-                        <div class="evidence-card">
-                            <div class="evidence-icon">
-                                <i class="fas fa-chart-bar"></i>
-                            </div>
-                            <h4>MCID Evidence</h4>
-                            <p>WOMAC ΔWOMAC ≥ 10 at 12 months represents clinically significant improvement in knee arthroplasty patients.</p>
-                            <div class="citation">Clement et al., 2018 - PMC</div>
-                        </div>
-                        
-                        <div class="evidence-card">
-                            <div class="evidence-icon">
-                                <i class="fas fa-exclamation-circle"></i>
-                            </div>
-                            <h4>Adverse Events</h4>
-                            <p>Systematic review of serious adverse events and 30-day readmissions following elective total knee arthroplasty.</p>
-                            <div class="citation">Papakostidis et al., 2021 - BioMed Central</div>
-                        </div>
-                        
-                        <div class="evidence-card">
-                            <div class="evidence-icon">
-                                <i class="fas fa-virus"></i>
-                            </div>
-                            <h4>Infection Risk</h4>
-                            <p>Periprosthetic joint infection incidence ~1% within 12 months, with significant cost and morbidity implications.</p>
-                            <div class="citation">JAMA Network Open, 2023</div>
-                        </div>
-                        
-                        <div class="evidence-card">
-                            <div class="evidence-icon">
-                                <i class="fas fa-globe-americas"></i>
-                            </div>
-                            <h4>Live Pilot Validation</h4>
-                            <p>We completed a live pilot with Hapvida (15.7M policyholders) to demonstrate feasibility and workflow integration. In the U.S., our pilot would train a new model on your de-identified data using the same pipeline and deploy a secure, metered API with audit logging.</p>
-                        </div>
-                        
-                        <div class="evidence-card">
-                            <div class="evidence-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h4>Regulatory Compliance</h4>
-                            <p>CareFuse is represented by Gunderson Dettmer, and our product is built under the FDA non-device CDS exemption, ensuring compliance with healthcare regulations.</p>
-                        </div>
+            </div>
+            
+            <!-- Validation Highlights -->
+            <div class="validation-highlights">
+                <h3>Validation Highlights</h3>
+                <div class="headline-metrics">
+                    <div class="metric-card">
+                        <div class="metric-number">Up to 97%</div>
+                        <div class="metric-label">Accuracy</div>
                     </div>
                     
-                    <div class="decision-curve">
-                        <h4>Decision Curve Analysis</h4>
-                        <div class="dca-chart">
-                            <div class="chart-placeholder">
-                                <i class="fas fa-chart-line"></i>
-                                <p>Net Benefit vs Threshold Probability</p>
-                                <p class="chart-note">CareFuse model shows superior net benefit across clinically relevant threshold range</p>
-                            </div>
-                        </div>
+                    <div class="metric-card">
+                        <div class="metric-number">AUC 0.93</div>
+                        <div class="metric-label">TKA pathway</div>
                     </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-number">AUC 0.87</div>
+                        <div class="metric-label">Conservative pathway</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-number">High Precision</div>
+                        <div class="metric-label">for non-MCID predictions</div>
+                    </div>
+                </div>
+                
+                <div class="validation-footnote">
+                    <p>Internal validation. Performance depends on thresholds and population. For demonstration only; not a coverage determination.</p>
+                    <a href="#methods" class="see-methods-link">See methods</a>
+                </div>
+            </div>
+            
+            <!-- Methods Section (anchor for "See methods" link) -->
+            <div id="methods" class="methods-section">
+                <h3>Methods</h3>
+                <div class="methods-content">
+                    <p>Our model uses logistic regression with demographics and WOMAC scores from the OAI dataset. We completed a live pilot with Hapvida (15.7M policyholders) to demonstrate feasibility and workflow integration. In the U.S., our pilot would train a new model on your de-identified data using the same pipeline and deploy a secure, metered API with audit logging.</p>
+                    <p>CareFuse is represented by Gunderson Dettmer, and our product is built under the FDA non-device CDS exemption.</p>
                 </div>
             </div>
         </div>
