@@ -1265,6 +1265,67 @@
     position: relative;
 }
 
+/* Global box-sizing and responsive helpers */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+img, svg, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fluid container adjustments for small screens */
+.nav-container, .section-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Mobile-first responsive tweaks */
+@media (max-width: 767px) {
+    body {
+        -webkit-text-size-adjust: 100%; /* prevent automatic zoom */
+    }
+
+    .nav-container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        height: auto;
+    }
+
+    .hero-container, .section-container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    /* Stack hero stats and reduce sizes so page fits width without zooming */
+    .hero-stats {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .stat-card .stat-number, .metric-value-large {
+        font-size: 1.5rem !important;
+    }
+
+    /* Reduce large paddings that cause overflow */
+    .card-header, .card-body, .card-footer, .metric-card-enhanced, .enhanced-card {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* Problem grid should be single column on small screens */
+    .problem-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Ensure no content pushes beyond viewport */
+    .main-content, .section-container {
+        overflow-x: hidden;
+    }
+}
+
 .dropdown-trigger::after {
     content: '\f107';
     font-family: 'Font Awesome 6 Free';
