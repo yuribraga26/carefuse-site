@@ -2056,3 +2056,39 @@ img, svg, video {
     }
 }
 
+
+/* Small-screen overflow and dropdown safety overrides
+   - Ensure dropdowns don't use negative left offsets which can cause horizontal overflow
+   - Constrain min/max widths so elements fit inside the viewport
+   - As a last-resort guard, hide any accidental horizontal overflow on very small screens
+*/
+@media (max-width: 480px) {
+    html, body {
+        /* Prevent accidental horizontal scrolling caused by positioned children */
+        overflow-x: hidden;
+    }
+
+    .dropdown-menu {
+        /* occupy the available screen space with small side margins instead of negative offsets */
+        position: fixed !important;
+        left: 0 !important;
+        right: 0 !important;
+        margin: 0 0.5rem !important;
+        min-width: 0 !important;
+        max-width: calc(100% - 1rem) !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Defensive override for any element that may set a large min-width on small screens */
+    [style*="min-width"] {
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* Ensure any fixed paddings on large containers don't push content off-screen */
+    .nav-container, .section-container, .page-hero, .main-footer, .footer-container {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+}
+
