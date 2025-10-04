@@ -51,21 +51,23 @@ function hideLoadingScreen() {
 
 // Navigation Functions
 function initializeNavigation() {
-    const navbar = document.querySelector('.navbar');
+    const navbar = document.querySelector('.main-nav') || document.querySelector('.navbar');
     const navLinks = document.querySelectorAll('.nav-links a');
-    
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-        
-        // Update active nav link
-        updateActiveNavLink();
-    });
-    
+
+    if (navbar) {
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Update active nav link
+            updateActiveNavLink();
+        });
+    }
+
     // Mobile menu toggle (if needed)
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-links');
