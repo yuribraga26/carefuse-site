@@ -279,7 +279,7 @@
                                     </tr>
                                     <tr>
                                         <td>Body Mass Index (BMI)</td>
-                                        <td>Normal</td>
+                                        <td>Obese</td>
                                     </tr>
                                     <tr>
                                         <td>Baseline Pain & Function</td>
@@ -320,16 +320,16 @@
                                 </div>
                                 <div class="prediction-details">
                                     <div class="prediction-probability">
-                                        <strong>Predicted Probability:</strong> 37%
+                                        <strong>Predicted Probability:</strong> 21%
                                     </div>
                                     <div class="probability-bar">
-                                        <div class="probability-fill" style="width: 37%"></div>
+                                        <div class="probability-fill tka" style="width: 21%"></div>
                                     </div>
-                                    <div class="prediction-status success">
-                                        Clinically significant benefit predicted
+                                    <div class="prediction-status danger">
+                                        Surgery benefit is unlikely
                                     </div>
                                     <div class="prediction-summary">
-                                        <strong>Summary:</strong> The model estimates a 37% chance of success, with a cutoff of 21%. Your prediction is driven up by Body Mass Index, but somewhat offset by Baseline Disability, Baseline Stiffness, Baseline Pain & Function.
+                                        <strong>Summary:</strong> The model estimates a 21% chance of success, with a cutoff of 37%. Your prediction is driven up by Body Mass Index, but somewhat offset by Baseline Disability, Baseline Stiffness, Baseline Pain & Function. Recommend supporting a 10% weight loss prior to surgical reconsideration.
                                     </div>
                                     
                                     <div class="top-influencers">
@@ -370,7 +370,7 @@
                                         <div class="probability-fill conservative" style="width: 60%"></div>
                                     </div>
                                     <div class="prediction-status success">
-                                        Clinically significant benefit predicted
+                                        Conservative care benefit is likely
                                     </div>
                                     <div class="prediction-summary">
                                         <strong>Summary:</strong> The model estimates a 60% chance of success, with a cutoff of 50%. Your prediction is driven up by Baseline Pain, Baseline Pain & Function, but somewhat offset by Lifestyle Modification.
@@ -409,8 +409,8 @@
                         </div>
                         
                         <div class="case-actions">
-                            <button class="btn btn-primary">Download PDF</button>
-                            <button class="btn btn-secondary">Back</button>
+                            <div class="btn btn-primary button-placeholder">Download PDF</div>
+                            <div class="btn btn-secondary button-placeholder">Back</div>
                         </div>
                         
                         <div class="contributing-factors">
@@ -753,16 +753,6 @@
                     </div>
                 </div>
                 
-                <div class="calculator-actions">
-                    <button class="btn btn-primary" onclick="downloadROI()">
-                        <i class="fas fa-download"></i>
-                        Download ROI Report (PDF)
-                    </button>
-                    <button class="btn btn-secondary" onclick="exportCSV()">
-                        <i class="fas fa-file-csv"></i>
-                        Export Data (CSV)
-                    </button>
-                </div>
             </div>
         </div>
     </section>
@@ -822,10 +812,6 @@
                     <button class="btn btn-primary btn-large" onclick="openDemo()">
                         <i class="fas fa-calendar-alt"></i>
                         Schedule Demo
-                    </button>
-                    <button class="btn btn-secondary btn-large" onclick="downloadSample()">
-                        <i class="fas fa-download"></i>
-                        Download Sample Packet
                     </button>
                 </div>
                 

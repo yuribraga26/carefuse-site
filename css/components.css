@@ -1000,6 +1000,10 @@
     transition: width 0.3s ease;
 }
 
+.probability-fill.tka {
+    background: #dc2626;
+}
+
 .probability-fill.conservative {
     background: #059669;
 }
@@ -1016,9 +1020,21 @@
     color: #065f46;
 }
 
+.prediction-status.danger {
+    background: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fca5a5;
+}
+
 .prediction-summary {
     margin-bottom: 1.5rem;
     line-height: 1.6;
+}
+
+.button-placeholder {
+    pointer-events: none;
+    cursor: default;
+    opacity: 0.7;
 }
 
 .top-influencers h5 {
