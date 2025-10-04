@@ -1436,18 +1436,22 @@ img, svg, video {
 .careers-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 5rem;
     align-items: start;
 }
 
+.careers-info > * + * {
+    margin-top: 2.5rem;
+}
+
 .company-values {
-    margin-top: 3rem;
+    margin-top: 3.5rem;
 }
 
 .values-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 2.5rem;
     margin-top: 2rem;
 }
 
@@ -1489,6 +1493,24 @@ img, svg, video {
     background: rgba(31, 122, 122, 0.05);
     border-radius: 12px;
     border-left: 4px solid var(--primary-teal);
+}
+
+.current-openings {
+    display: flex;
+    flex-direction: column;
+    gap: 2.75rem;
+}
+
+.future-opportunities > * + * {
+    margin-top: 1.5rem;
+}
+
+.opportunities-list li + li {
+    margin-top: 1rem;
+}
+
+.stay-connected {
+    margin-top: 3rem;
 }
 
 .status-icon {
@@ -1805,6 +1827,18 @@ img, svg, video {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+}
+
+.nav-logo-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.nav-logo-link:hover .logo-text {
+    color: var(--primary-teal);
 }
 
 .logo-text {
