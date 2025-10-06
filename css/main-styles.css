@@ -654,6 +654,17 @@ body {
     padding: 2rem;
 }
 
+.patient-disclaimer {
+    margin: 1.5rem 0 0;
+    padding: 1rem;
+    background: rgba(31, 122, 122, 0.08);
+    border-left: 4px solid var(--primary-teal);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
 .risk-factors {
     margin-bottom: 2rem;
 }
