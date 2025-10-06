@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/main-styles.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/carefuse-logo.png">
 </head>
 <body>
     <nav class="main-nav">
@@ -120,14 +121,16 @@
                             <h2>Tell Us About Your Challenges</h2>
                             <p>Share your current prior authorization pain points and we'll explore how CareFuse can address them.</p>
                             
-                            <form class="contact-form" action="https://formsubmit.co/yuri.braga@carefuseai.com" method="POST">
+                            <form class="contact-form" id="carefuse-contact-form" action="https://formsubmit.co/yuri.braga@carefuseai.com" method="POST">
                                 <input type="hidden" name="_subject" value="New CareFuse contact request">
                                 <input type="hidden" name="_captcha" value="false">
+                                <input type="hidden" name="_template" value="table">
+                                <input type="hidden" name="_replyto" id="replyToField" value="">
                                 <div class="form-group">
                                     <label for="name">Name *</label>
                                     <input type="text" id="name" name="name" required>
                                 </div>
-                                
+
                                 <div class="form-group">
                                     <label for="email">Email *</label>
                                     <input type="email" id="email" name="email" required>
@@ -227,6 +230,21 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        (function() {
+            const form = document.getElementById('carefuse-contact-form');
+            if (!form) return;
+
+            const emailField = document.getElementById('email');
+            const replyToField = document.getElementById('replyToField');
+
+            form.addEventListener('submit', function() {
+                if (replyToField && emailField) {
+                    replyToField.value = emailField.value;
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
 

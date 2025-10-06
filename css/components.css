@@ -1846,7 +1846,7 @@ img, svg, video {
 .logo-text {
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--dark-cyan);
 }
 
 .logo-image {
