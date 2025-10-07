@@ -405,6 +405,21 @@ body {
     line-height: 1.5;
 }
 
+.stat-footnote {
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+}
+
+.stat-footnote a {
+    color: var(--primary-teal);
+    text-decoration: none;
+}
+
+.stat-footnote a:hover,
+.stat-footnote a:focus {
+    text-decoration: underline;
+}
+
 .hero-actions {
     display: flex;
     gap: 1rem;
