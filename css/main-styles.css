@@ -420,6 +420,21 @@ body {
     text-decoration: underline;
 }
 
+.footnote {
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+}
+
+.footnote a {
+    color: var(--primary-teal);
+    text-decoration: none;
+}
+
+.footnote a:hover,
+.footnote a:focus {
+    text-decoration: underline;
+}
+
 .hero-actions {
     display: flex;
     gap: 1rem;
