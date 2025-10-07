@@ -307,11 +307,16 @@ body {
 .next-section-nav {
     display: flex;
     justify-content: center;
-    margin: 3rem 0;
+    align-items: center;
+    margin: 4rem auto 6rem;
+    max-width: 1400px;
+    padding: 0 2rem;
 }
 
 .next-section-nav .btn {
     box-shadow: var(--shadow-md);
+    min-width: 220px;
+    text-align: center;
 }
 
 /* Hero Section */

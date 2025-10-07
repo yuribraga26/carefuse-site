@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareFuse - Platform</title>
-    <meta name="description" content="Discover how CareFuse integrates with PAS workflows, governance tooling, and payer infrastructure.">
+    <title>CareFuse - Application</title>
+    <meta name="description" content="See how CareFuse's counterfactual AI delivers value for payers, providers, and patients across orthopedic workflows.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,12 +45,12 @@
                     <a href="problem.html" class="nav-link">Problem</a>
                     <a href="solution.html" class="nav-link">Solution</a>
                     <a href="evidence.html" class="nav-link">Evidence</a>
-                    <a href="application.html" class="nav-link">Application</a>
+                    <a href="application.html" class="nav-link active">Application</a>
 
                     <div class="nav-dropdown">
-                        <a href="#" class="nav-link dropdown-trigger active">Implementation</a>
+                        <a href="#" class="nav-link dropdown-trigger">Implementation</a>
                         <div class="dropdown-menu">
-                            <a href="platform.html" class="dropdown-item active">Platform</a>
+                            <a href="platform.html" class="dropdown-item">Platform</a>
                             <a href="compliance.html" class="dropdown-item">Compliance</a>
                             <a href="impact.html" class="dropdown-item">Impact</a>
                         </div>
@@ -77,104 +77,82 @@
             </div>
         </nav>
 
-        <section id="platform" class="platform-section">
+        <section id="application" class="application-section">
             <div class="section-container">
                 <div class="section-header">
-                    <span class="section-badge">Platform &amp; Integration</span>
-                    <h2 class="section-title">Authorization Plugin</h2>
-                    <p class="section-description">Seamless integration with existing UM workflows through Da Vinci PAS and FHIR R4 compliance.<sup class="footnote"><a href="references.html#ref1">[1]</a></sup></p>
+                    <span class="section-badge">Application</span>
+                    <h2 class="section-title">Deploying Counterfactual Intelligence</h2>
+                    <p class="section-description">U.S. insurers face soaring costs from total knee arthroplasty (TKA), yet up to one-third of patients experience little to no improvement after surgery, leading to wasteful spending, patient dissatisfaction, and poor outcomes.<sup class="footnote"><a href="references.html#ref15">[15]</a></sup><sup class="footnote"><a href="references.html#ref16">[16]</a></sup></p>
                 </div>
 
-                <div class="integration-diagram">
-                    <div class="integration-flow">
-                        <div class="flow-step">
-                            <div class="step-icon">
-                                <i class="fas fa-hospital"></i>
-                            </div>
-                            <div class="step-label">EHR/Portal</div>
+                <div class="application-grid">
+                    <div class="application-card">
+                        <div class="application-icon">
+                            <i class="fas fa-brain"></i>
                         </div>
-                        <div class="flow-arrow">→</div>
-                        <div class="flow-step">
-                            <div class="step-icon">
-                                <i class="fas fa-exchange-alt"></i>
-                            </div>
-                            <div class="step-label">Da Vinci PAS</div>
-                        </div>
-                        <div class="flow-arrow">→</div>
-                        <div class="flow-step active">
-                            <div class="step-icon">
-                                <i class="fas fa-brain"></i>
-                            </div>
-                            <div class="step-label">CareFuse</div>
-                        </div>
-                        <div class="flow-arrow">→</div>
-                        <div class="flow-step">
-                            <div class="step-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div class="step-label">Payer System</div>
-                        </div>
+                        <h3>Predictive Decision Support</h3>
+                        <ul class="application-list">
+                            <li>Delivers individualized counterfactual predictions showing outcomes with surgery versus conservative care.</li>
+                            <li>Achieves ~93% AUC accuracy on real-world pre- and post-operative data, ready for clinical deployment.</li>
+                            <li>Generates SHAP-based explanations to meet transparency, auditability, and fairness requirements.<sup class="footnote"><a href="references.html#ref22">[22]</a></sup></li>
+                            <li>Aligns with CMS’s 2025 prior authorization final rule, which mandates evidence-based, patient-specific justification for orthopedic procedures.<sup class="footnote"><a href="references.html#ref17">[17]</a></sup></li>
+                        </ul>
                     </div>
-                    <p class="integration-note">CareFuse creates clinical attachments and rationale within the standard PAS workflow</p>
-                </div>
 
-                <div class="platform-features">
-                    <div class="feature-grid">
-                        <div class="platform-feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-id-card"></i>
-                            </div>
-                            <h3>Versioned Model Card</h3>
-                            <p>Complete model documentation with version control and performance tracking</p>
+                    <div class="application-card">
+                        <div class="application-icon">
+                            <i class="fas fa-hospital-user"></i>
                         </div>
+                        <h3>Optimizes Orthopedic Workflow</h3>
+                        <ul class="application-list">
+                            <li>Prioritizes “hot-lead” OA patients so surgical teams focus on members most likely to achieve meaningful benefit.</li>
+                            <li>Improves OR throughput and surgical ROI by elevating high-benefit cases—critical as CMS requires KOOS Jr. outcomes for reimbursement tracking.<sup class="footnote"><a href="references.html#ref18">[18]</a></sup><sup class="footnote"><a href="references.html#ref19">[19]</a></sup></li>
+                            <li>Reduces low-value specialist visits by steering low-benefit patients away from unnecessary imaging and consults.</li>
+                        </ul>
+                    </div>
 
-                        <div class="platform-feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-history"></i>
-                            </div>
-                            <h3>Audit Logs</h3>
-                            <p>Comprehensive audit trail for all predictions and decisions</p>
+                    <div class="application-card">
+                        <div class="application-icon">
+                            <i class="fas fa-dna"></i>
                         </div>
-
-                        <div class="platform-feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <h3>Data Provenance</h3>
-                            <p>Full traceability of data sources and processing steps</p>
-                        </div>
-
-                        <div class="platform-feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h3>Drift &amp; Bias Monitoring</h3>
-                            <p>Continuous monitoring for model performance and fairness</p>
-                        </div>
-
-                        <div class="platform-feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <h3>Role-Based Access</h3>
-                            <p>Granular permissions and access controls for different user roles</p>
-                        </div>
-
-                        <div class="platform-feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h3>FHIR R4 Compliance</h3>
-                            <p>Generate FHIR R4 resources conformant with Da Vinci PAS (FHIR→X12 278)<sup class="footnote"><a href="references.html#ref1">[1]</a></sup></p>
-                        </div>
+                        <h3>Boosts Conservative Care Pathways</h3>
+                        <ul class="application-list">
+                            <li>Redirects low-benefit patients toward GLP-1-based weight management programs proven to improve OA outcomes.<sup class="footnote"><a href="references.html#ref20">[20]</a></sup><sup class="footnote"><a href="references.html#ref21">[21]</a></sup></li>
+                            <li>Promotes structured physical therapy and lifestyle programs that delay surgical need.</li>
+                            <li>Delivers AI-personalized education where patients compare surgical versus non-surgical benefit, powered by SHAP explanations.<sup class="footnote"><a href="references.html#ref22">[22]</a></sup></li>
+                            <li>Empowers shared decision-making that reduces regret and unnecessary interventions.<sup class="footnote"><a href="references.html#ref23">[23]</a></sup></li>
+                        </ul>
                     </div>
                 </div>
 
+                <div class="application-outcomes">
+                    <div class="outcome-card">
+                        <i class="fas fa-piggy-bank"></i>
+                        <div>
+                            <h3>For Payers</h3>
+                            <p>Reduced spend on low-benefit TKA surgeries, fewer downstream costs, and transparent ROI tracking.</p>
+                        </div>
+                    </div>
+                    <div class="outcome-card">
+                        <i class="fas fa-user-md"></i>
+                        <div>
+                            <h3>For Providers</h3>
+                            <p>Higher outcome metrics, optimized OR utilization, and avoidance of poor-value care episodes.</p>
+                        </div>
+                    </div>
+                    <div class="outcome-card">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <h3>For Patients</h3>
+                            <p>Clearer choices, fewer unnecessary surgeries, and improved access to alternatives that deliver meaningful improvement.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
         <div class="next-section-nav">
-            <a href="compliance.html" class="btn btn-secondary">Next: Compliance</a>
+            <a href="platform.html" class="btn btn-secondary">Next: Platform</a>
         </div>
 
         <footer class="footer">
@@ -217,6 +195,5 @@
     </div>
 
     <script src="js/main.js"></script>
-    <script src="js/calculator.js"></script>
 </body>
 </html>
