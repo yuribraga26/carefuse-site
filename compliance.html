@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareFuse - Transparent AI for Hip & Knee Prior Authorization</title>
-    <meta name="description" content="Clinical-grade AI for payer UM teams. Per-member clinical predictions with SHAP explanations, built for InterQual/MCG workflows and HL7 FHIR PAS.">
+    <title>CareFuse - Compliance</title>
+    <meta name="description" content="Understand the governance, regulatory alignment, and safeguards powering CareFuse's payer-ready AI platform.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,6 @@
     <link rel="icon" type="image/png" href="images/carefuse-logo.png">
 </head>
 <body class="teal-theme">
-    <!-- Loading Screen -->
     <div id="loading-screen" class="loading-screen">
         <div class="loading-animation">
             <img src="images/carefuse-logo.png" alt="CareFuse logo" class="loading-logo">
@@ -31,7 +30,6 @@
         </div>
     </div>
 
-    <!-- Main Content -->
     <div id="main-content" class="main-content">
         <nav class="main-nav">
             <div class="nav-container">
@@ -43,17 +41,17 @@
                 </div>
 
                 <div class="nav-links">
-                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="index.html" class="nav-link">Home</a>
                     <a href="problem.html" class="nav-link">Problem</a>
                     <a href="solution.html" class="nav-link">Solution</a>
                     <a href="evidence.html" class="nav-link">Evidence</a>
                     <a href="application.html" class="nav-link">Application</a>
 
                     <div class="nav-dropdown">
-                        <a href="#" class="nav-link dropdown-trigger">Implementation</a>
+                        <a href="#" class="nav-link dropdown-trigger active">Implementation</a>
                         <div class="dropdown-menu">
                             <a href="platform.html" class="dropdown-item">Platform</a>
-                            <a href="compliance.html" class="dropdown-item">Compliance</a>
+                            <a href="compliance.html" class="dropdown-item active">Compliance</a>
                             <a href="impact.html" class="dropdown-item">Impact</a>
                         </div>
                     </div>
@@ -79,51 +77,87 @@
             </div>
         </nav>
 
-        <!-- Home / Hero Section -->
-        <section class="hero-section">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Transparent AI for Orthopedic Surgery Prediction</h1>
-                    <p class="hero-subtitle">CareFuse is the first company to build a counterfactual AI model for total knee arthroplasty (TKA), predicting individualized outcomes with and without surgery. With ~790k TKAs annually in the U.S., and 30% of patients gaining no benefit, our SHAP-explained platform empowers payers to identify the right moment for the right patient, reducing unnecessary surgeries and costs.</p>
+        <section class="compliance-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">Compliance &amp; Governance</span>
+                    <h2 class="section-title">Regulatory Alignment</h2>
+                    <p class="section-description">Built for healthcare compliance with comprehensive governance and audit capabilities, aligning with the CMS Interoperability &amp; Prior Authorization Final Rule.<sup class="footnote"><a href="references.html#ref12">[12]</a></sup></p>
+                </div>
 
-                    <div class="hero-stats">
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="stat-number">$9+ Billion</div>
-                            <div class="stat-label">spent in the US per year</div>
-                            <div class="stat-description">in knee replacement every year for the surgery alone (not including revisions or readmissions). <sup class="footnote"><a href="references.html#ref2">[2]</a></sup> This number is predicted to increase to $16.4 billion by 2032. <sup class="footnote"><a href="references.html#ref3">[3]</a></sup></div>
+                <div class="compliance-grid">
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="fas fa-shield-alt"></i>
                         </div>
-
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-procedures"></i>
-                            </div>
-                            <div class="stat-number">30%</div>
-                            <div class="stat-label">of Total Knee Replacements</div>
-                            <div class="stat-description">ultimately leave the patient dissatisfied <sup class="footnote"><a href="references.html#ref5">[5]</a></sup></div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div class="stat-number">93%</div>
-                            <div class="stat-label">Model AUC</div>
-                            <div class="stat-description">Clinical prediction accuracy for MCID achievement at 12 months</div>
-                        </div>
+                        <h3>HIPAA/BAA Compliance</h3>
+                        <ul>
+                            <li>Signed Business Associate Agreements</li>
+                            <li>At-rest and in-transit encryption</li>
+                            <li>Least-privilege access controls</li>
+                            <li>Comprehensive audit logging</li>
+                            <li>Breach response procedures</li>
+                        </ul>
                     </div>
 
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>NAIC AI Bulletin Alignment <sup class="footnote"><a href="references.html#ref13">[13]</a></sup></h3>
+                        <ul>
+                            <li>AIS Program support documentation</li>
+                            <li>Detailed model cards and validation reports</li>
+                            <li>Subgroup and fairness testing</li>
+                            <li>Continuous monitoring plans</li>
+                            <li>Vendor due-diligence packages</li>
+                        </ul>
+                    </div>
+
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3>California AB-3030 <sup class="footnote"><a href="references.html#ref14">[14]</a></sup></h3>
+                        <p>For member-facing clinical communications to California residents:</p>
+                        <ul>
+                            <li>Required AI disclaimers and human contact instructions</li>
+                            <li>"Reviewed by licensed clinician" toggle to suppress disclaimers</li>
+                            <li>Compliance with GenAI patient communication requirements</li>
+                        </ul>
+                    </div>
+
+                    <div class="compliance-card">
+                        <div class="compliance-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Colorado Readiness</h3>
+                        <p>Prepared for Colorado SB21-169 and SB24-205 requirements for plans operating in Colorado.</p>
+                    </div>
                 </div>
+
+                <div class="certification-badges">
+                    <div class="badge">
+                        <i class="fas fa-certificate"></i>
+                        <span>HIPAA Compliant</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>SOC 2 Ready</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-globe"></i>
+                        <span>ISO 27001 Ready</span>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <div class="next-section-nav">
-            <a href="problem.html" class="btn btn-secondary">Next: Problem</a>
+            <a href="impact.html" class="btn btn-secondary">Next: Impact</a>
         </div>
 
-        <!-- Footer -->
         <footer class="footer">
             <div class="footer-container">
                 <div class="footer-content">
@@ -163,31 +197,6 @@
         </footer>
     </div>
 
-    <!-- MCID Tooltip -->
-    <div id="mcid-tooltip" class="tooltip">
-        <div class="tooltip-content">
-            <h4>MCID (Minimal Clinically Important Difference)</h4>
-            <p>The smallest change in a treatment outcome that a patient would identify as important. For WOMAC scores, ΔWOMAC ≥ 10 points represents meaningful clinical improvement.</p>
-        </div>
-    </div>
-
-    <!-- SHAP Tooltip -->
-    <div id="shap-tooltip" class="tooltip">
-        <div class="tooltip-content">
-            <h4>SHAP (SHapley Additive exPlanations)</h4>
-            <p>A method to explain individual predictions by computing the contribution of each feature to the prediction. Provides transparent, interpretable AI explanations.</p>
-        </div>
-    </div>
-
-    <!-- PAS Tooltip -->
-    <div id="pas-tooltip" class="tooltip">
-        <div class="tooltip-content">
-            <h4>PAS (Prior Authorization Support)</h4>
-            <p>HL7 FHIR implementation guide for electronic prior authorization workflows, enabling seamless integration between providers and payers.</p>
-        </div>
-    </div>
-
-    <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/calculator.js"></script>
 </body>

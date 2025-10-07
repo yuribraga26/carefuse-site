@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareFuse - Transparent AI for Hip & Knee Prior Authorization</title>
-    <meta name="description" content="Clinical-grade AI for payer UM teams. Per-member clinical predictions with SHAP explanations, built for InterQual/MCG workflows and HL7 FHIR PAS.">
+    <title>CareFuse - Platform</title>
+    <meta name="description" content="Discover how CareFuse integrates with PAS workflows, governance tooling, and payer infrastructure.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,6 @@
     <link rel="icon" type="image/png" href="images/carefuse-logo.png">
 </head>
 <body class="teal-theme">
-    <!-- Loading Screen -->
     <div id="loading-screen" class="loading-screen">
         <div class="loading-animation">
             <img src="images/carefuse-logo.png" alt="CareFuse logo" class="loading-logo">
@@ -31,7 +30,6 @@
         </div>
     </div>
 
-    <!-- Main Content -->
     <div id="main-content" class="main-content">
         <nav class="main-nav">
             <div class="nav-container">
@@ -43,16 +41,16 @@
                 </div>
 
                 <div class="nav-links">
-                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="index.html" class="nav-link">Home</a>
                     <a href="problem.html" class="nav-link">Problem</a>
                     <a href="solution.html" class="nav-link">Solution</a>
                     <a href="evidence.html" class="nav-link">Evidence</a>
                     <a href="application.html" class="nav-link">Application</a>
 
                     <div class="nav-dropdown">
-                        <a href="#" class="nav-link dropdown-trigger">Implementation</a>
+                        <a href="#" class="nav-link dropdown-trigger active">Implementation</a>
                         <div class="dropdown-menu">
-                            <a href="platform.html" class="dropdown-item">Platform</a>
+                            <a href="platform.html" class="dropdown-item active">Platform</a>
                             <a href="compliance.html" class="dropdown-item">Compliance</a>
                             <a href="impact.html" class="dropdown-item">Impact</a>
                         </div>
@@ -79,51 +77,106 @@
             </div>
         </nav>
 
-        <!-- Home / Hero Section -->
-        <section class="hero-section">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Transparent AI for Orthopedic Surgery Prediction</h1>
-                    <p class="hero-subtitle">CareFuse is the first company to build a counterfactual AI model for total knee arthroplasty (TKA), predicting individualized outcomes with and without surgery. With ~790k TKAs annually in the U.S., and 30% of patients gaining no benefit, our SHAP-explained platform empowers payers to identify the right moment for the right patient, reducing unnecessary surgeries and costs.</p>
+        <section id="platform" class="platform-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">Platform &amp; Integration</span>
+                    <h2 class="section-title">Authorization Plugin</h2>
+                    <p class="section-description">Seamless integration with existing UM workflows through Da Vinci PAS and FHIR R4 compliance.<sup class="footnote"><a href="references.html#ref1">[1]</a></sup></p>
+                </div>
 
-                    <div class="hero-stats">
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-chart-line"></i>
+                <div class="integration-diagram">
+                    <div class="integration-flow">
+                        <div class="flow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-hospital"></i>
                             </div>
-                            <div class="stat-number">$9+ Billion</div>
-                            <div class="stat-label">spent in the US per year</div>
-                            <div class="stat-description">in knee replacement every year for the surgery alone (not including revisions or readmissions). <sup class="footnote"><a href="references.html#ref2">[2]</a></sup> This number is predicted to increase to $16.4 billion by 2032. <sup class="footnote"><a href="references.html#ref3">[3]</a></sup></div>
+                            <div class="step-label">EHR/Portal</div>
                         </div>
-
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-procedures"></i>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-exchange-alt"></i>
                             </div>
-                            <div class="stat-number">30%</div>
-                            <div class="stat-label">of Total Knee Replacements</div>
-                            <div class="stat-description">ultimately leave the patient dissatisfied <sup class="footnote"><a href="references.html#ref5">[5]</a></sup></div>
+                            <div class="step-label">Da Vinci PAS</div>
                         </div>
-
-                        <div class="stat-card">
-                            <div class="stat-icon">
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step active">
+                            <div class="step-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="step-label">CareFuse</div>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-step">
+                            <div class="step-icon">
                                 <i class="fas fa-shield-alt"></i>
                             </div>
-                            <div class="stat-number">93%</div>
-                            <div class="stat-label">Model AUC</div>
-                            <div class="stat-description">Clinical prediction accuracy for MCID achievement at 12 months</div>
+                            <div class="step-label">Payer System</div>
                         </div>
                     </div>
-
+                    <p class="integration-note">CareFuse creates clinical attachments and rationale within the standard PAS workflow</p>
                 </div>
+
+                <div class="platform-features">
+                    <div class="feature-grid">
+                        <div class="platform-feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <h3>Versioned Model Card</h3>
+                            <p>Complete model documentation with version control and performance tracking</p>
+                        </div>
+
+                        <div class="platform-feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <h3>Audit Logs</h3>
+                            <p>Comprehensive audit trail for all predictions and decisions</p>
+                        </div>
+
+                        <div class="platform-feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3>Data Provenance</h3>
+                            <p>Full traceability of data sources and processing steps</p>
+                        </div>
+
+                        <div class="platform-feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Drift &amp; Bias Monitoring</h3>
+                            <p>Continuous monitoring for model performance and fairness</p>
+                        </div>
+
+                        <div class="platform-feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Role-Based Access</h3>
+                            <p>Granular permissions and access controls for different user roles</p>
+                        </div>
+
+                        <div class="platform-feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>FHIR R4 Compliance</h3>
+                            <p>Generate FHIR R4 resources conformant with Da Vinci PAS (FHIR→X12 278)<sup class="footnote"><a href="references.html#ref1">[1]</a></sup></p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <div class="next-section-nav">
-            <a href="problem.html" class="btn btn-secondary">Next: Problem</a>
+            <a href="compliance.html" class="btn btn-secondary">Next: Compliance</a>
         </div>
 
-        <!-- Footer -->
         <footer class="footer">
             <div class="footer-container">
                 <div class="footer-content">
@@ -163,31 +216,6 @@
         </footer>
     </div>
 
-    <!-- MCID Tooltip -->
-    <div id="mcid-tooltip" class="tooltip">
-        <div class="tooltip-content">
-            <h4>MCID (Minimal Clinically Important Difference)</h4>
-            <p>The smallest change in a treatment outcome that a patient would identify as important. For WOMAC scores, ΔWOMAC ≥ 10 points represents meaningful clinical improvement.</p>
-        </div>
-    </div>
-
-    <!-- SHAP Tooltip -->
-    <div id="shap-tooltip" class="tooltip">
-        <div class="tooltip-content">
-            <h4>SHAP (SHapley Additive exPlanations)</h4>
-            <p>A method to explain individual predictions by computing the contribution of each feature to the prediction. Provides transparent, interpretable AI explanations.</p>
-        </div>
-    </div>
-
-    <!-- PAS Tooltip -->
-    <div id="pas-tooltip" class="tooltip">
-        <div class="tooltip-content">
-            <h4>PAS (Prior Authorization Support)</h4>
-            <p>HL7 FHIR implementation guide for electronic prior authorization workflows, enabling seamless integration between providers and payers.</p>
-        </div>
-    </div>
-
-    <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/calculator.js"></script>
 </body>

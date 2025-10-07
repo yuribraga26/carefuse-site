@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareFuse - Transparent AI for Hip & Knee Prior Authorization</title>
-    <meta name="description" content="Clinical-grade AI for payer UM teams. Per-member clinical predictions with SHAP explanations, built for InterQual/MCG workflows and HL7 FHIR PAS.">
+    <title>CareFuse - Roadmap</title>
+    <meta name="description" content="See the CareFuse expansion roadmap spanning hip, knee, shoulder, and spine decision support.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,6 @@
     <link rel="icon" type="image/png" href="images/carefuse-logo.png">
 </head>
 <body class="teal-theme">
-    <!-- Loading Screen -->
     <div id="loading-screen" class="loading-screen">
         <div class="loading-animation">
             <img src="images/carefuse-logo.png" alt="CareFuse logo" class="loading-logo">
@@ -31,7 +30,6 @@
         </div>
     </div>
 
-    <!-- Main Content -->
     <div id="main-content" class="main-content">
         <nav class="main-nav">
             <div class="nav-container">
@@ -43,7 +41,7 @@
                 </div>
 
                 <div class="nav-links">
-                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="index.html" class="nav-link">Home</a>
                     <a href="problem.html" class="nav-link">Problem</a>
                     <a href="solution.html" class="nav-link">Solution</a>
                     <a href="evidence.html" class="nav-link">Evidence</a>
@@ -58,7 +56,7 @@
                         </div>
                     </div>
 
-                    <a href="roadmap.html" class="nav-link">Roadmap</a>
+                    <a href="roadmap.html" class="nav-link active">Roadmap</a>
 
                     <div class="nav-dropdown">
                         <a href="#" class="nav-link dropdown-trigger">Company</a>
@@ -79,51 +77,56 @@
             </div>
         </nav>
 
-        <!-- Home / Hero Section -->
-        <section class="hero-section">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Transparent AI for Orthopedic Surgery Prediction</h1>
-                    <p class="hero-subtitle">CareFuse is the first company to build a counterfactual AI model for total knee arthroplasty (TKA), predicting individualized outcomes with and without surgery. With ~790k TKAs annually in the U.S., and 30% of patients gaining no benefit, our SHAP-explained platform empowers payers to identify the right moment for the right patient, reducing unnecessary surgeries and costs.</p>
+        <section class="roadmap-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">Strategic Vision</span>
+                    <h2 class="section-title">Expanding Clinical Decision Support</h2>
+                    <p class="section-description">CareFuse: comprehensive platform for evidence-based utilization management across orthopedic procedures.</p>
+                </div>
 
-                    <div class="hero-stats">
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="stat-number">$9+ Billion</div>
-                            <div class="stat-label">spent in the US per year</div>
-                            <div class="stat-description">in knee replacement every year for the surgery alone (not including revisions or readmissions). <sup class="footnote"><a href="references.html#ref2">[2]</a></sup> This number is predicted to increase to $16.4 billion by 2032. <sup class="footnote"><a href="references.html#ref3">[3]</a></sup></div>
+                <div class="roadmap-timeline">
+                    <div class="timeline-item available">
+                        <div class="timeline-icon">
+                            <i class="fas fa-check-circle"></i>
                         </div>
-
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-procedures"></i>
-                            </div>
-                            <div class="stat-number">30%</div>
-                            <div class="stat-label">of Total Knee Replacements</div>
-                            <div class="stat-description">ultimately leave the patient dissatisfied <sup class="footnote"><a href="references.html#ref5">[5]</a></sup></div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div class="stat-number">93%</div>
-                            <div class="stat-label">Model AUC</div>
-                            <div class="stat-description">Clinical prediction accuracy for MCID achievement at 12 months</div>
+                        <div class="timeline-content">
+                            <h3>Hip &amp; Knee Arthroplasty</h3>
+                            <span class="timeline-status">Available Now</span>
+                            <p>Validated model with 93% AUC, preventing unnecessary procedures with transparent AI</p>
                         </div>
                     </div>
 
+                    <div class="timeline-item upcoming">
+                        <div class="timeline-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Shoulder Arthroplasty</h3>
+                            <span class="timeline-status">Q2 2025</span>
+                            <p>Expanding predictive technology to shoulder replacement procedures</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item future">
+                        <div class="timeline-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Spinal Fusion</h3>
+                            <span class="timeline-status">2026</span>
+                            <p>Intelligent prediction for spinal arthrodesis procedures</p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </section>
 
         <div class="next-section-nav">
-            <a href="problem.html" class="btn btn-secondary">Next: Problem</a>
+            <a href="references.html" class="btn btn-secondary">Next: References</a>
         </div>
 
-        <!-- Footer -->
         <footer class="footer">
             <div class="footer-container">
                 <div class="footer-content">
@@ -163,31 +166,6 @@
         </footer>
     </div>
 
-    <!-- MCID Tooltip -->
-    <div id="mcid-tooltip" class="tooltip">
-        <div class="tooltip-content">
-            <h4>MCID (Minimal Clinically Important Difference)</h4>
-            <p>The smallest change in a treatment outcome that a patient would identify as important. For WOMAC scores, ΔWOMAC ≥ 10 points represents meaningful clinical improvement.</p>
-        </div>
-    </div>
-
-    <!-- SHAP Tooltip -->
-    <div id="shap-tooltip" class="tooltip">
-        <div class="tooltip-content">
-            <h4>SHAP (SHapley Additive exPlanations)</h4>
-            <p>A method to explain individual predictions by computing the contribution of each feature to the prediction. Provides transparent, interpretable AI explanations.</p>
-        </div>
-    </div>
-
-    <!-- PAS Tooltip -->
-    <div id="pas-tooltip" class="tooltip">
-        <div class="tooltip-content">
-            <h4>PAS (Prior Authorization Support)</h4>
-            <p>HL7 FHIR implementation guide for electronic prior authorization workflows, enabling seamless integration between providers and payers.</p>
-        </div>
-    </div>
-
-    <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/calculator.js"></script>
 </body>
