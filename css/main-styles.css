@@ -405,13 +405,19 @@ body {
     line-height: 1.5;
 }
 
-.stat-source {
+.stat-footnote {
     font-size: 0.75rem;
-    color: var(--text-muted);
-    font-style: italic;
-    margin-top: 0.75rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid var(--border-light);
+    margin-left: 0.25rem;
+}
+
+.stat-footnote a {
+    color: var(--primary-teal);
+    text-decoration: none;
+}
+
+.stat-footnote a:hover,
+.stat-footnote a:focus {
+    text-decoration: underline;
 }
 
 .hero-actions {
