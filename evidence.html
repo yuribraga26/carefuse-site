@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareFuse - Transparent AI for Hip & Knee Prior Authorization</title>
-    <meta name="description" content="Clinical-grade AI for payer UM teams. Per-member clinical predictions with SHAP explanations, built for InterQual/MCG workflows and HL7 FHIR PAS.">
+    <title>CareFuse - Evidence</title>
+    <meta name="description" content="Review the validation metrics, methodology, and internal testing that power CareFuse's counterfactual AI models.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,6 @@
     <link rel="icon" type="image/png" href="images/carefuse-logo.png">
 </head>
 <body class="teal-theme">
-    <!-- Loading Screen -->
     <div id="loading-screen" class="loading-screen">
         <div class="loading-animation">
             <img src="images/carefuse-logo.png" alt="CareFuse logo" class="loading-logo">
@@ -31,7 +30,6 @@
         </div>
     </div>
 
-    <!-- Main Content -->
     <div id="main-content" class="main-content">
         <nav class="main-nav">
             <div class="nav-container">
@@ -43,10 +41,10 @@
                 </div>
 
                 <div class="nav-links">
-                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="index.html" class="nav-link">Home</a>
                     <a href="problem.html" class="nav-link">Problem</a>
                     <a href="solution.html" class="nav-link">Solution</a>
-                    <a href="evidence.html" class="nav-link">Evidence</a>
+                    <a href="evidence.html" class="nav-link active">Evidence</a>
                     <a href="platform.html" class="nav-link">Platform</a>
                     <a href="compliance.html" class="nav-link">Compliance</a>
                     <a href="impact.html" class="nav-link">Impact</a>
@@ -72,50 +70,70 @@
             </div>
         </nav>
 
-        <!-- Home / Hero Section -->
-        <section class="hero-section">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Transparent AI for Orthopedic Surgery Prediction</h1>
-                    <p class="hero-subtitle">CareFuse is the first company to build a counterfactual AI model for total knee arthroplasty (TKA), predicting individualized outcomes with and without surgery. With ~790k TKAs annually in the U.S., and 30% of patients gaining no benefit, our SHAP-explained platform empowers payers to identify the right moment for the right patient, reducing unnecessary surgeries and costs.</p>
+        <section id="evidence" class="evidence-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <div class="section-badge">Clinical Evidence</div>
+                    <h2 class="section-title">Validation &amp; Performance</h2>
+                    <p class="section-description">At CareFuse, we've built a calibrated, explainable logistic-regression model (OAI: demographics + WOMAC) that estimates a TKA patient's probability of achieving MCID and generates a counterfactual for conservative care using propensity-score weighting. Across 50 multi-seed holdout splits it achieves AUC ≈ 0.93, with transparent calibration/thresholding and SHAP explanations suited for clinical review.</p>
+                </div>
 
-                    <div class="hero-stats">
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="stat-number">$9+ Billion</div>
-                            <div class="stat-label">spent in the US per year</div>
-                            <div class="stat-description">in knee replacement every year for the surgery alone (not including revisions or readmissions). <sup class="footnote"><a href="references.html#ref2">[2]</a></sup> This number is predicted to increase to $16.4 billion by 2032. <sup class="footnote"><a href="references.html#ref3">[3]</a></sup></div>
+                <div class="data-inputs-callout">
+                    <div class="callout-card">
+                        <div class="callout-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <div class="callout-content">
+                            <h3>How we generate a prediction</h3>
+                            <p>This tool can generate a personalized prediction using information the patient can readily provide (basic demographics and medical history) together with responses to an internationally validated arthritis questionnaire <span class="info-tooltip" data-tooltip="Refers to widely used instruments in osteoarthritis research and clinical practice"><i class="fas fa-info-circle"></i></span>. No imaging or specialized tests are required for the demo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="validation-highlights">
+                    <h3>Validation Highlights</h3>
+                    <div class="headline-metrics">
+                        <div class="metric-card">
+                            <div class="metric-number">Up to 97%</div>
+                            <div class="metric-label">Accuracy</div>
                         </div>
 
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-procedures"></i>
-                            </div>
-                            <div class="stat-number">30%</div>
-                            <div class="stat-label">of Total Knee Replacements</div>
-                            <div class="stat-description">ultimately leave the patient dissatisfied <sup class="footnote"><a href="references.html#ref5">[5]</a></sup></div>
+                        <div class="metric-card">
+                            <div class="metric-number">AUC 0.93</div>
+                            <div class="metric-label">TKA pathway</div>
                         </div>
 
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div class="stat-number">93%</div>
-                            <div class="stat-label">Model AUC</div>
-                            <div class="stat-description">Clinical prediction accuracy for MCID achievement at 12 months</div>
+                        <div class="metric-card">
+                            <div class="metric-number">AUC 0.87</div>
+                            <div class="metric-label">Conservative pathway</div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-number">Sensitivity</div>
+                            <div class="metric-label">to non-MCID procedures</div>
                         </div>
                     </div>
 
-                    <div class="next-section-nav">
-                        <a href="problem.html" class="btn btn-secondary">Next: Problem</a>
+                    <div class="validation-footnote">
+                        <p>Internal validation. Performance depends on thresholds and population. For demonstration only; not a coverage determination.</p>
+                        <a href="#methods" class="see-methods-link">See methods</a>
                     </div>
+                </div>
+
+                <div id="methods" class="methods-section">
+                    <h3>Methods</h3>
+                    <div class="methods-content">
+                        <p>Our model uses logistic regression with demographics and WOMAC scores from the OAI dataset. We completed a live pilot with Hapvida (15.7M policyholders) to demonstrate feasibility and workflow integration. In the U.S., our pilot would train a new model on your de-identified data using the same pipeline and deploy a secure, metered API with audit logging.</p>
+                        <p>CareFuse is represented by Gunderson Dettmer, and our product is built under the FDA non-device CDS exemption.</p>
+                    </div>
+                </div>
+
+                <div class="next-section-nav">
+                    <a href="platform.html" class="btn btn-secondary">Next: Platform</a>
                 </div>
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="footer">
             <div class="footer-container">
                 <div class="footer-content">
@@ -160,31 +178,6 @@
         </footer>
     </div>
 
-    <!-- MCID Tooltip -->
-    <div id="mcid-tooltip" class="tooltip">
-        <div class="tooltip-content">
-            <h4>MCID (Minimal Clinically Important Difference)</h4>
-            <p>The smallest change in a treatment outcome that a patient would identify as important. For WOMAC scores, ΔWOMAC ≥ 10 points represents meaningful clinical improvement.</p>
-        </div>
-    </div>
-
-    <!-- SHAP Tooltip -->
-    <div id="shap-tooltip" class="tooltip">
-        <div class="tooltip-content">
-            <h4>SHAP (SHapley Additive exPlanations)</h4>
-            <p>A method to explain individual predictions by computing the contribution of each feature to the prediction. Provides transparent, interpretable AI explanations.</p>
-        </div>
-    </div>
-
-    <!-- PAS Tooltip -->
-    <div id="pas-tooltip" class="tooltip">
-        <div class="tooltip-content">
-            <h4>PAS (Prior Authorization Support)</h4>
-            <p>HL7 FHIR implementation guide for electronic prior authorization workflows, enabling seamless integration between providers and payers.</p>
-        </div>
-    </div>
-
-    <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/calculator.js"></script>
 </body>

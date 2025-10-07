@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareFuse - The Perfect Storm</title>
+    <meta name="description" content="Explore the regulatory, clinical, and financial pressures reshaping total knee arthroplasty decisions.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="css/main-styles.css" rel="stylesheet">
+    <link href="css/components.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/carefuse-logo.png">
+</head>
+<body class="teal-theme">
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-animation">
+            <img src="images/carefuse-logo.png" alt="CareFuse logo" class="loading-logo">
+            <div class="loading-text">CareFuse</div>
+            <div class="loading-subtitle">Loading clinical platform...</div>
+        </div>
+    </div>
+
+    <div id="main-content" class="main-content">
+        <nav class="main-nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html" class="nav-logo-link">
+                        <img src="images/carefuse-logo.png" alt="CareFuse" class="logo-image">
+                        <span class="logo-text">CareFuse</span>
+                    </a>
+                </div>
+
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="problem.html" class="nav-link active">Problem</a>
+                    <a href="solution.html" class="nav-link">Solution</a>
+                    <a href="evidence.html" class="nav-link">Evidence</a>
+                    <a href="platform.html" class="nav-link">Platform</a>
+                    <a href="compliance.html" class="nav-link">Compliance</a>
+                    <a href="impact.html" class="nav-link">Impact</a>
+                    <a href="call-to-action.html" class="nav-link">CTA</a>
+                    <a href="roadmap.html" class="nav-link">Roadmap</a>
+                    <a href="references.html" class="nav-link">References</a>
+
+                    <div class="nav-dropdown">
+                        <a href="#" class="nav-link dropdown-trigger">Company</a>
+                        <div class="dropdown-menu">
+                            <a href="careers.html" class="dropdown-item">Careers</a>
+                            <a href="contact.html" class="dropdown-item">Contact</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-actions">
+                    <button class="btn btn-primary" onclick="openDemo()">Request Demo</button>
+                    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <section id="problem" class="problem-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">Current Challenges</span>
+                    <h2 class="section-title">The Perfect Storm: Four Converging Healthcare Forces</h2>
+                    <p class="section-description">The U.S. healthcare system is experiencing unprecedented regulatory convergence that's transforming how knee replacement decisions are made, measured, and governed. Four critical forces are creating both urgent challenges and massive opportunities for transparent, evidence-based prior authorization.</p>
+                </div>
+
+                <div class="problem-grid">
+                    <div class="problem-card">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>The Accountability Challenge</h3>
+                        <div class="accountability-stats">
+                            <div class="accountability-item">
+                                <span class="stat-number">25%</span>
+                                <span class="stat-label">APU Reduction Penalty</span>
+                                <span class="stat-description">For non-compliance with PROMs collection</span>
+                            </div>
+                            <div class="accountability-item">
+                                <span class="stat-number">2027</span>
+                                <span class="stat-label">Public Reporting</span>
+                                <span class="stat-description">CMS will publicly report improvement rates</span>
+                            </div>
+                            <div class="accountability-item">
+                                <span class="stat-number">50%</span>
+                                <span class="stat-label">Data Collection</span>
+                                <span class="stat-description">Minimum patient coverage required</span>
+                            </div>
+                        </div>
+                        <p class="card-description">Medicare's mandatory PROMs collection for TKA/THA shifts focus from volume to outcomes, with severe financial penalties for hospitals failing to demonstrate patient improvement.<sup class="footnote"><a href="references.html#ref6">[6]</a></sup></p>
+                    </div>
+
+                    <div class="problem-card">
+                        <div class="card-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3>The Subjectivity Problem</h3>
+                        <div class="subjectivity-stats">
+                            <div class="subjectivity-item">
+                                <span class="stat-number">High</span>
+                                <span class="stat-label">Physician Variation</span>
+                                <span class="stat-description">Significant disagreement on TKA indications</span>
+                            </div>
+                            <div class="subjectivity-item">
+                                <span class="stat-number">Elusive</span>
+                                <span class="stat-label">Surgical Readiness</span>
+                                <span class="stat-description">Guidelines remain unclear and subjective</span>
+                            </div>
+                            <div class="subjectivity-item">
+                                <span class="stat-number">Conflict</span>
+                                <span class="stat-label">Patient Decisions</span>
+                                <span class="stat-description">Uncertainty about surgical outcomes</span>
+                            </div>
+                        </div>
+                        <p class="card-description">Despite being one of the most common surgeries, TKA decisions remain "highly subjective and discretionary" with significant variation between orthopedic surgeons, rheumatologists, and primary care providers.<sup class="footnote"><a href="references.html#ref7">[7]</a></sup></p>
+                    </div>
+
+                    <div class="problem-card">
+                        <div class="card-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>The Transparency Requirement</h3>
+                        <div class="transparency-stats">
+                            <div class="transparency-item">
+                                <span class="stat-number">6+</span>
+                                <span class="stat-label">States with AI Laws</span>
+                                <span class="stat-description">Requiring physician oversight of AI decisions</span>
+                            </div>
+                            <div class="transparency-item">
+                                <span class="stat-number">Individual</span>
+                                <span class="stat-label">Data Requirement</span>
+                                <span class="stat-description">AI must use patient-specific, not group data</span>
+                            </div>
+                            <div class="transparency-item">
+                                <span class="stat-number">Explainable</span>
+                                <span class="stat-label">AI Mandate</span>
+                                <span class="stat-description">Transparent, reviewable decision-making</span>
+                            </div>
+                        </div>
+                        <p class="card-description">New state laws prohibit AI from making final prior authorization decisions without physician review, requiring transparent, explainable AI that bases decisions on individual patient data rather than population averages.<sup class="footnote"><a href="references.html#ref8">[8]</a></sup></p>
+                    </div>
+
+                    <div class="problem-card">
+                        <div class="card-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3>The Evidence Gap Problem</h3>
+                        <div class="conservative-stats">
+                            <div class="conservative-item">
+                                <span class="stat-number">40%</span>
+                                <span class="stat-label">TKAs Avoidable</span>
+                                <span class="stat-description">With structured conservative care</span>
+                            </div>
+                            <div class="conservative-item">
+                                <span class="stat-number">Weak</span>
+                                <span class="stat-label">Head-to-Head Evidence</span>
+                                <span class="stat-description">Conservative vs. surgical comparisons</span>
+                            </div>
+                            <div class="conservative-item">
+                                <span class="stat-number">Default</span>
+                                <span class="stat-label">TKA Becomes Default</span>
+                                <span class="stat-description">Choice due to evidence uncertainty</span>
+                            </div>
+                        </div>
+                        <p class="card-description">While structured conservative care (education, exercise, weight management) can avoid up to 40% of TKAs, the lack of robust head-to-head comparison evidence makes surgery the default choice. This evidence gap prevents optimal patient-treatment matching.<sup class="footnote"><a href="references.html#ref9">[9]</a></sup></p>
+                    </div>
+                </div>
+
+                <div class="next-section-nav">
+                    <a href="solution.html" class="btn btn-secondary">Next: Solution</a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <img src="images/carefuse-logo.png" alt="CareFuse" class="footer-logo">
+                        <span class="footer-brand-text">CareFuse</span>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="solution.html">Solution</a></li>
+                            <li><a href="evidence.html">Evidence</a></li>
+                            <li><a href="platform.html">Platform</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="careers.html">Careers</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="footer-legal">
+                        <p>CareFuse provides decision support to assist licensed clinical reviewers; final coverage determinations are made by the plan's clinicians consistent with plan policies and applicable laws. For California members, AI-generated patient communications include AB-3030 notices or are clinician-reviewed.<sup class="footnote"><a href="references.html#ref14">[14]</a></sup></p>
+                    </div>
+
+                    <div class="footer-bottom-content">
+                        <p>&copy; 2025 CareFuse. All rights reserved.</p>
+                        <div class="footer-bottom-links">
+                            <a href="#privacy">Privacy Policy</a>
+                            <a href="#terms">Terms of Service</a>
+                            <a href="#hipaa">HIPAA Compliance</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/calculator.js"></script>
+</body>
+</html>
