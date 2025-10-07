@@ -164,11 +164,19 @@ function initializeAnimations() {
     }, { threshold: 0.5 });
     
     counters.forEach(counter => {
+        if (counter.dataset.staticCounter === 'true') {
+            return;
+        }
+
         counterObserver.observe(counter);
     });
 }
 
 function animateCounter(element) {
+    if (element.dataset.staticCounter === 'true') {
+        return;
+    }
+
     const originalText = element.textContent.trim();
 
     // Detect formats and suffixes

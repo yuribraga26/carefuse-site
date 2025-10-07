@@ -80,9 +80,10 @@
                         <div class="stat-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <div class="stat-number">$18 Billion</div>
+                        <div class="stat-number" data-static-counter="true">$18 Billion</div>
                         <div class="stat-label">spent in the US per year</div>
-                        <div class="stat-description">in knee and hip arthroplasty every year <sup class="stat-footnote"><a href="#ref10">[10]</a></sup></div>
+                        <div class="stat-description">in knee and hip arthroplasty every year</div>
+                        <div class="stat-source">Source: ScienceDirect (Economic burden of knee and hip arthroplasty in younger patients)</div>
                     </div>
 
                     <div class="stat-card">
@@ -91,7 +92,8 @@
                         </div>
                         <div class="stat-number">30%</div>
                         <div class="stat-label">of Total Knee Replacements</div>
-                        <div class="stat-description">ultimately leave the patient dissatisfied <sup class="stat-footnote"><a href="#ref11">[11]</a></sup></div>
+                        <div class="stat-description">ultimately leave the patient dissatisfied</div>
+                        <div class="stat-source">Source: ScienceDirect (Dissatisfaction rates following total knee arthroplasty)</div>
                     </div>
 
                     <div class="stat-card">
@@ -101,6 +103,7 @@
                         <div class="stat-number">93%</div>
                         <div class="stat-label">Model AUC</div>
                         <div class="stat-description">Clinical prediction accuracy for MCID achievement at 12 months</div>
+                        <div class="stat-source">Source: CareFuse internal validation (OAI multi-seed logistic regression)</div>
                     </div>
                 </div>
                 
@@ -858,64 +861,63 @@
             </div>
             
             <div class="references-grid">
-                <div class="reference-item">
+                <div class="reference-item" id="ref1">
                     <div class="ref-number">1</div>
                     <div class="ref-content">
-                        <p>CMS Interoperability & Prior Authorization Final Rule (CMS-0057-F): fact sheet & PDF.</p>
-                        <a href="https://www.cms.gov/files/document/fact-sheet-cms-interoperability-and-prior-authorization-final-rule-cms-0057-f.pdf" class="ref-link" target="_blank" rel="noopener">CMS Fact Sheet (PDF)</a>
+                        <p>ScienceDirect. Economic burden of knee and hip arthroplasty in younger patients.</p>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S0883540325002529#:~:text=Over%20the%20last%20several%20decades,in%20younger%20patients%20%5B4%5D." class="ref-link" target="_blank" rel="noopener">ScienceDirect (2025)</a>
                     </div>
                 </div>
-                
-                <div class="reference-item">
+
+                <div class="reference-item" id="ref2">
                     <div class="ref-number">2</div>
                     <div class="ref-content">
-                        <p>HL7 Da Vinci PAS Implementation Guide.</p>
-                        <a href="https://build.fhir.org/ig/HL7/davinci-pas/specification.html" class="ref-link" target="_blank" rel="noopener">Da Vinci PAS (FHIR IG)</a>
+                        <p>ScienceDirect. Dissatisfaction rates following total knee arthroplasty.</p>
+                        <a href="https://www.sciencedirect.com/science/article/pii/S1877056817303298" class="ref-link" target="_blank" rel="noopener">ScienceDirect (2017)</a>
                     </div>
                 </div>
-                
-                <div class="reference-item">
+
+                <div class="reference-item" id="ref3">
                     <div class="ref-number">3</div>
                     <div class="ref-content">
-                        <p>NAIC Model AI Bulletin (AI governance expectations).</p>
-                        <a href="https://content.naic.org/sites/default/files/cmte-h-big-data-artificial-intelligence-wg-ai-model-bulletin.pdf.pdf" class="ref-link" target="_blank" rel="noopener">NAIC AI Model Bulletin (PDF)</a>
+                        <p>CareFuse internal validation. Multi-seed OAI logistic regression achieving AUC 0.93 for MCID prediction.</p>
                     </div>
                 </div>
-                
-                <div class="reference-item">
+
+                <div class="reference-item" id="ref4">
                     <div class="ref-number">4</div>
                     <div class="ref-content">
-                        <p>California AB-3030 bill text / Medical Board summary.</p>
-                        <a href="https://www.mbc.ca.gov/Resources/Medical-Resources/GenAI-Notification.aspx" class="ref-link" target="_blank" rel="noopener">Medical Board of California - GenAI Notification</a>
+                        <p>Centers for Medicare &amp; Medicaid Services. THA/TKA Patient-Reported Outcomes Performance Measure (PRO-PM) program requirements.</p>
+                        <a href="https://qualitynet.cms.gov/inpatient/measures/tha-tka" class="ref-link" target="_blank" rel="noopener">CMS QualityNet: THA/TKA PRO-PM</a>
                     </div>
                 </div>
-                
-                <div class="reference-item">
+
+                <div class="reference-item" id="ref5">
                     <div class="ref-number">5</div>
                     <div class="ref-content">
-                        <p>AJRR annual report (context on U.S. hip/knee volumes).</p>
-                        <a href="https://www.aaos.org/registries/publications/ajrr-annual-report/" class="ref-link" target="_blank" rel="noopener">AJRR Annual Report (AAOS)</a>
+                        <p>Clinical variation in total knee arthroplasty decision-making across specialties.</p>
+                        <a href="https://bmchealthservres.biomedcentral.com/" class="ref-link" target="_blank" rel="noopener">BMC Health Services Research</a>
+                        <a href="https://journals.lww.com/clinorthop/pages/default.aspx" class="ref-link" target="_blank" rel="noopener">Clinical Orthopaedics &amp; Related Research</a>
                     </div>
                 </div>
-                
-                <div class="reference-item">
+
+                <div class="reference-item" id="ref6">
                     <div class="ref-number">6</div>
                     <div class="ref-content">
-                        <p>Papakostidis C, Giannoudis PV, Watson JT, et al. Serious adverse events and 30‑day hospital readmission following elective total knee arthroplasty: a systematic review and meta‑analysis. <em>J Orthop Surg Res</em>. 2021;16:236.</p>
-                        <a href="https://pubmed.ncbi.nlm.nih.gov/33789702/" class="ref-link" target="_blank" rel="noopener">PubMed (PMID 33789702)</a>
-                        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8011390/" class="ref-link" target="_blank" rel="noopener">PMC8011390</a>
+                        <p>Cooley LLP. State artificial intelligence regulation landscape (2025 analysis).</p>
+                        <a href="https://www.cooley.com/" class="ref-link" target="_blank" rel="noopener">Cooley LLP</a>
                     </div>
                 </div>
-                
-                <div class="reference-item">
+
+                <div class="reference-item" id="ref7">
                     <div class="ref-number">7</div>
                     <div class="ref-content">
-                        <p>PJI incidence within 12 months (recent systematic reviews and registry analyses).</p>
-                        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10618849/" class="ref-link" target="_blank" rel="noopener">PMC10618849</a>
+                        <p>Arthritis Care &amp; Research. Budget impact analysis of conservative management versus total knee arthroplasty.</p>
+                        <a href="https://acrjournals.onlinelibrary.wiley.com/journal/21514658" class="ref-link" target="_blank" rel="noopener">Arthritis Care &amp; Research (Journal)</a>
                     </div>
                 </div>
-                
-                <div class="reference-item">
+
+                <div class="reference-item" id="ref8">
                     <div class="ref-number">8</div>
                     <div class="ref-content">
                         <p>Clement ND, et al. WOMAC MCID ≈ 10 at 12 months post-TKA.</p>
@@ -923,28 +925,69 @@
                         <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6259858/" class="ref-link" target="_blank" rel="noopener">PMC6259858</a>
                     </div>
                 </div>
-                
-                <div class="reference-item">
+
+                <div class="reference-item" id="ref9">
                     <div class="ref-number">9</div>
                     <div class="ref-content">
-                        <p>AAOS clinical news / costs context.</p>
-                        <a href="https://www.aaos.org/aaosnow/2025/june/clinical/clinical02/" class="ref-link" target="_blank" rel="noopener">AAOSNow Clinical (June 2025)</a>
+                        <p>Papakostidis C, Giannoudis PV, Watson JT, et al. Serious adverse events and 30‑day hospital readmission following elective total knee arthroplasty: a systematic review and meta‑analysis. <em>J Orthop Surg Res</em>. 2021;16:236.</p>
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/33789702/" class="ref-link" target="_blank" rel="noopener">PubMed (PMID 33789702)</a>
+                        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8011390/" class="ref-link" target="_blank" rel="noopener">PMC8011390</a>
                     </div>
                 </div>
 
                 <div class="reference-item" id="ref10">
                     <div class="ref-number">10</div>
                     <div class="ref-content">
-                        <p>ScienceDirect. Economic burden of knee and hip arthroplasty in younger patients.</p>
-                        <a href="https://www.sciencedirect.com/science/article/pii/S0883540325002529#:~:text=Over%20the%20last%20several%20decades,in%20younger%20patients%20%5B4%5D." class="ref-link" target="_blank" rel="noopener">ScienceDirect (2025)</a>
+                        <p>Periprosthetic joint infection rates within 12 months post-TKA.</p>
+                        <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10618849/" class="ref-link" target="_blank" rel="noopener">Systematic Review (PMC10618849)</a>
                     </div>
                 </div>
 
                 <div class="reference-item" id="ref11">
                     <div class="ref-number">11</div>
                     <div class="ref-content">
-                        <p>ScienceDirect. Dissatisfaction rates following total knee arthroplasty.</p>
-                        <a href="https://www.sciencedirect.com/science/article/pii/S1877056817303298" class="ref-link" target="_blank" rel="noopener">ScienceDirect (2017)</a>
+                        <p>American Joint Replacement Registry (AJRR) annual report: U.S. hip and knee procedure volumes.</p>
+                        <a href="https://www.aaos.org/registries/publications/ajrr-annual-report/" class="ref-link" target="_blank" rel="noopener">AJRR Annual Report (AAOS)</a>
+                    </div>
+                </div>
+
+                <div class="reference-item" id="ref12">
+                    <div class="ref-number">12</div>
+                    <div class="ref-content">
+                        <p>AAOS clinical news coverage of arthroplasty costs and outcomes.</p>
+                        <a href="https://www.aaos.org/aaosnow/2025/june/clinical/clinical02/" class="ref-link" target="_blank" rel="noopener">AAOSNow Clinical (June 2025)</a>
+                    </div>
+                </div>
+
+                <div class="reference-item" id="ref13">
+                    <div class="ref-number">13</div>
+                    <div class="ref-content">
+                        <p>CMS Interoperability &amp; Prior Authorization Final Rule (CMS-0057-F): fact sheet &amp; PDF.</p>
+                        <a href="https://www.cms.gov/files/document/fact-sheet-cms-interoperability-and-prior-authorization-final-rule-cms-0057-f.pdf" class="ref-link" target="_blank" rel="noopener">CMS Fact Sheet (PDF)</a>
+                    </div>
+                </div>
+
+                <div class="reference-item" id="ref14">
+                    <div class="ref-number">14</div>
+                    <div class="ref-content">
+                        <p>HL7 Da Vinci Prior Authorization Support (PAS) Implementation Guide.</p>
+                        <a href="https://build.fhir.org/ig/HL7/davinci-pas/specification.html" class="ref-link" target="_blank" rel="noopener">Da Vinci PAS (FHIR IG)</a>
+                    </div>
+                </div>
+
+                <div class="reference-item" id="ref15">
+                    <div class="ref-number">15</div>
+                    <div class="ref-content">
+                        <p>NAIC Model Bulletin on Artificial Intelligence Systems (AIS) governance expectations.</p>
+                        <a href="https://content.naic.org/sites/default/files/cmte-h-big-data-artificial-intelligence-wg-ai-model-bulletin.pdf.pdf" class="ref-link" target="_blank" rel="noopener">NAIC AI Model Bulletin (PDF)</a>
+                    </div>
+                </div>
+
+                <div class="reference-item" id="ref16">
+                    <div class="ref-number">16</div>
+                    <div class="ref-content">
+                        <p>California AB-3030 (GenAI) bill text and Medical Board implementation guidance.</p>
+                        <a href="https://www.mbc.ca.gov/Resources/Medical-Resources/GenAI-Notification.aspx" class="ref-link" target="_blank" rel="noopener">Medical Board of California - GenAI Notification</a>
                     </div>
                 </div>
             </div>
@@ -985,11 +1028,6 @@
                 
                 <div class="footer-bottom-content">
                     <p>&copy; 2025 CareFuse. All rights reserved.</p>
-                    <div class="footer-bottom-links">
-                        <a href="#privacy">Privacy Policy</a>
-                        <a href="#terms">Terms of Service</a>
-                        <a href="#hipaa">HIPAA Compliance</a>
-                    </div>
                 </div>
             </div>
         </div>
