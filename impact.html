@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CareFuse - Transparent AI for Hip & Knee Prior Authorization</title>
-    <meta name="description" content="Clinical-grade AI for payer UM teams. Per-member clinical predictions with SHAP explanations, built for InterQual/MCG workflows and HL7 FHIR PAS.">
+    <title>CareFuse - Impact</title>
+    <meta name="description" content="Model your avoided surgeries, medical savings, and ROI with the CareFuse decision support platform.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,6 @@
     <link rel="icon" type="image/png" href="images/carefuse-logo.png">
 </head>
 <body class="teal-theme">
-    <!-- Loading Screen -->
     <div id="loading-screen" class="loading-screen">
         <div class="loading-animation">
             <img src="images/carefuse-logo.png" alt="CareFuse logo" class="loading-logo">
@@ -31,7 +30,6 @@
         </div>
     </div>
 
-    <!-- Main Content -->
     <div id="main-content" class="main-content">
         <nav class="main-nav">
             <div class="nav-container">
@@ -43,13 +41,13 @@
                 </div>
 
                 <div class="nav-links">
-                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="index.html" class="nav-link">Home</a>
                     <a href="problem.html" class="nav-link">Problem</a>
                     <a href="solution.html" class="nav-link">Solution</a>
                     <a href="evidence.html" class="nav-link">Evidence</a>
                     <a href="platform.html" class="nav-link">Platform</a>
                     <a href="compliance.html" class="nav-link">Compliance</a>
-                    <a href="impact.html" class="nav-link">Impact</a>
+                    <a href="impact.html" class="nav-link active">Impact</a>
                     <a href="call-to-action.html" class="nav-link">CTA</a>
                     <a href="roadmap.html" class="nav-link">Roadmap</a>
                     <a href="references.html" class="nav-link">References</a>
@@ -72,50 +70,80 @@
             </div>
         </nav>
 
-        <!-- Home / Hero Section -->
-        <section class="hero-section">
-            <div class="hero-container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Transparent AI for Orthopedic Surgery Prediction</h1>
-                    <p class="hero-subtitle">CareFuse is the first company to build a counterfactual AI model for total knee arthroplasty (TKA), predicting individualized outcomes with and without surgery. With ~790k TKAs annually in the U.S., and 30% of patients gaining no benefit, our SHAP-explained platform empowers payers to identify the right moment for the right patient, reducing unnecessary surgeries and costs.</p>
+        <section id="impact" class="impact-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-badge">Impact &amp; ROI</span>
+                    <h2 class="section-title">Financial Impact Calculator</h2>
+                    <p class="section-description">Estimate the financial impact of CareFuse on your utilization management operations.</p>
+                </div>
 
-                    <div class="hero-stats">
-                        <div class="stat-card">
-                            <div class="stat-icon">
+                <div class="roi-calculator">
+                    <div class="calculator-inputs">
+                        <div class="input-group">
+                            <label for="monthly-volume">Monthly TKA/THA PA Volume</label>
+                            <input type="number" id="monthly-volume" value="150" min="1">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="approval-rate">Baseline Approval Rate (%)</label>
+                            <input type="range" id="approval-rate" min="60" max="95" value="85">
+                            <span class="range-value">85%</span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="low-benefit">% Predicted Low Benefit</label>
+                            <input type="range" id="low-benefit" min="10" max="40" value="25">
+                            <span class="range-value">25%</span>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="episode-cost">Average Episode Cost ($)</label>
+                            <input type="number" id="episode-cost" value="25000" min="10000">
+                        </div>
+                    </div>
+
+                    <div class="calculator-results">
+                        <div class="result-card">
+                            <div class="result-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <div class="result-value" id="avoided-surgeries">38</div>
+                            <div class="result-label">Avoided Surgeries/Year</div>
+                        </div>
+
+                        <div class="result-card">
+                            <div class="result-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="result-value" id="medical-savings">$950,000</div>
+                            <div class="result-label">Annual Medical Savings</div>
+                        </div>
+
+                        <div class="result-card">
+                            <div class="result-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="result-value" id="admin-savings">$75,000</div>
+                            <div class="result-label">Admin Savings</div>
+                        </div>
+
+                        <div class="result-card">
+                            <div class="result-icon">
                                 <i class="fas fa-chart-line"></i>
                             </div>
-                            <div class="stat-number">$9+ Billion</div>
-                            <div class="stat-label">spent in the US per year</div>
-                            <div class="stat-description">in knee replacement every year for the surgery alone (not including revisions or readmissions). <sup class="footnote"><a href="references.html#ref2">[2]</a></sup> This number is predicted to increase to $16.4 billion by 2032. <sup class="footnote"><a href="references.html#ref3">[3]</a></sup></div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-procedures"></i>
-                            </div>
-                            <div class="stat-number">30%</div>
-                            <div class="stat-label">of Total Knee Replacements</div>
-                            <div class="stat-description">ultimately leave the patient dissatisfied <sup class="footnote"><a href="references.html#ref5">[5]</a></sup></div>
-                        </div>
-
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div class="stat-number">93%</div>
-                            <div class="stat-label">Model AUC</div>
-                            <div class="stat-description">Clinical prediction accuracy for MCID achievement at 12 months</div>
+                            <div class="result-value" id="net-roi">$1,025,000</div>
+                            <div class="result-label">Net Annual ROI</div>
                         </div>
                     </div>
+                </div>
 
-                    <div class="next-section-nav">
-                        <a href="problem.html" class="btn btn-secondary">Next: Problem</a>
-                    </div>
+                <div class="next-section-nav">
+                    <a href="call-to-action.html" class="btn btn-secondary">Next: Call to Action</a>
                 </div>
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="footer">
             <div class="footer-container">
                 <div class="footer-content">
@@ -160,31 +188,6 @@
         </footer>
     </div>
 
-    <!-- MCID Tooltip -->
-    <div id="mcid-tooltip" class="tooltip">
-        <div class="tooltip-content">
-            <h4>MCID (Minimal Clinically Important Difference)</h4>
-            <p>The smallest change in a treatment outcome that a patient would identify as important. For WOMAC scores, ΔWOMAC ≥ 10 points represents meaningful clinical improvement.</p>
-        </div>
-    </div>
-
-    <!-- SHAP Tooltip -->
-    <div id="shap-tooltip" class="tooltip">
-        <div class="tooltip-content">
-            <h4>SHAP (SHapley Additive exPlanations)</h4>
-            <p>A method to explain individual predictions by computing the contribution of each feature to the prediction. Provides transparent, interpretable AI explanations.</p>
-        </div>
-    </div>
-
-    <!-- PAS Tooltip -->
-    <div id="pas-tooltip" class="tooltip">
-        <div class="tooltip-content">
-            <h4>PAS (Prior Authorization Support)</h4>
-            <p>HL7 FHIR implementation guide for electronic prior authorization workflows, enabling seamless integration between providers and payers.</p>
-        </div>
-    </div>
-
-    <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/calculator.js"></script>
 </body>
