@@ -254,17 +254,19 @@ body {
 .btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: var(--radius-lg);
     font-family: var(--font-family-primary);
     font-weight: 600;
-    font-size: 0.875rem;
+    font-size: 1.3125rem;
     text-decoration: none;
     cursor: pointer;
     transition: var(--transition-fast);
     white-space: nowrap;
+    text-align: center;
 }
 
 .btn-primary {
@@ -301,7 +303,7 @@ body {
 
 .btn-large {
     padding: 1rem 2rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
 }
 
 .next-section-nav {
@@ -1918,10 +1920,12 @@ body {
 
 .footer-bottom-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
     flex-wrap: wrap;
     gap: 1rem;
+    text-align: center;
 }
 
 .footer-bottom-content p {
@@ -1931,6 +1935,8 @@ body {
 
 .footer-bottom-links {
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 2rem;
 }
 

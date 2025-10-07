@@ -4,8 +4,116 @@
 let isLoading = true;
 let currentSection = 'hero';
 
+// Shared layout templates
+const NAVIGATION_TEMPLATE = `
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="nav-logo-link">
+                    <img src="images/carefuse-logo.png" alt="CareFuse" class="logo-image">
+                    <span class="logo-text">CareFuse</span>
+                </a>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="problem.html" class="nav-link">Problem</a>
+                <a href="application.html" class="nav-link">Application</a>
+
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link dropdown-trigger">Implementation</a>
+                    <div class="dropdown-menu">
+                        <a href="platform.html" class="dropdown-item">Platform</a>
+                        <a href="compliance.html" class="dropdown-item">Compliance</a>
+                        <a href="impact.html" class="dropdown-item">Impact</a>
+                    </div>
+                </div>
+
+                <a href="roadmap.html" class="nav-link">Roadmap</a>
+
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link dropdown-trigger">Company</a>
+                    <div class="dropdown-menu">
+                        <a href="careers.html" class="dropdown-item">Careers</a>
+                        <a href="contact.html" class="dropdown-item">Contact</a>
+                        <a href="references.html" class="dropdown-item">References</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn btn-primary" onclick="openDemo()">Request Demo</button>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+`;
+
+const FOOTER_TEMPLATE = `
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="images/carefuse-logo.png" alt="CareFuse" class="footer-logo">
+                    <span class="footer-brand-text">CareFuse</span>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#solution">Solution</a></li>
+                        <li><a href="index.html#evidence">Evidence</a></li>
+                        <li><a href="platform.html">Platform</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <p>CareFuse provides decision support to assist licensed clinical reviewers; final coverage determinations are made by the plan's clinicians consistent with plan policies and applicable laws. For California members, AI-generated patient communications include AB-3030 notices or are clinician-reviewed.<sup class="footnote"><a href="references.html#ref14">[14]</a></sup></p>
+                </div>
+
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 CareFuse. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#privacy">Privacy Policy</a>
+                        <a href="#terms">Terms of Service</a>
+                        <a href="#hipaa">HIPAA Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+`;
+
+// Inject shared layout components
+function injectSharedLayout() {
+    const navPlaceholder = document.getElementById('navigation-placeholder');
+    if (navPlaceholder && !navPlaceholder.dataset.rendered) {
+        navPlaceholder.innerHTML = NAVIGATION_TEMPLATE;
+        navPlaceholder.dataset.rendered = 'true';
+    }
+
+    const footerPlaceholder = document.getElementById('footer-placeholder');
+    if (footerPlaceholder && !footerPlaceholder.dataset.rendered) {
+        footerPlaceholder.innerHTML = FOOTER_TEMPLATE;
+        footerPlaceholder.dataset.rendered = 'true';
+    }
+}
+
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
+    injectSharedLayout();
     initializeWebsite();
 });
 
@@ -14,7 +122,7 @@ function initializeWebsite() {
     // Hide loading screen after content loads
     setTimeout(() => {
         hideLoadingScreen();
-    }, 2000);
+    }, 1000);
     
     // Initialize components
     initializeNavigation();
@@ -53,6 +161,29 @@ function hideLoadingScreen() {
 function initializeNavigation() {
     const navbar = document.querySelector('.main-nav') || document.querySelector('.navbar');
     const navLinks = document.querySelectorAll('.nav-links a');
+
+    if (navLinks.length) {
+        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (!href) {
+                return;
+            }
+
+            const normalizedHref = href.split('#')[0] || 'index.html';
+            if (normalizedHref === currentPath || (normalizedHref === 'index.html' && currentPath === '')) {
+                link.classList.add('active');
+
+                const parentDropdown = link.closest('.nav-dropdown');
+                if (parentDropdown) {
+                    const trigger = parentDropdown.querySelector('.dropdown-trigger');
+                    if (trigger) {
+                        trigger.classList.add('active');
+                    }
+                }
+            }
+        });
+    }
 
     if (navbar) {
         // Navbar scroll effect
