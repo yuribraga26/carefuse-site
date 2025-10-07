@@ -405,6 +405,15 @@ body {
     line-height: 1.5;
 }
 
+.stat-source {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-light);
+}
+
 .hero-actions {
     display: flex;
     gap: 1rem;
