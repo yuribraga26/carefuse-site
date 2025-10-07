@@ -177,15 +177,25 @@ function animateCounter(element) {
     const hasK = /k/i.test(originalText);
     const hasM = /M/.test(originalText);
 
-    // Extract numeric portion
-    const numericPart = originalText.replace(/[^0-9.]/g, '');
+    // Extract numeric portion and surrounding text
+    const numberMatch = originalText.match(/([-+]?[0-9]*\.?[0-9]+)/);
+    if (!numberMatch) return;
+
+    const numericPart = numberMatch[0].replace(/,/g, '');
+    const prefixText = numberMatch.index !== undefined ? originalText.slice(0, numberMatch.index) : '';
+    const suffixText = numberMatch.index !== undefined ? originalText.slice(numberMatch.index + numberMatch[0].length) : '';
+    const hasAlphabeticSuffix = /[a-zA-Z]/.test(suffixText);
+    const decimalPlaces = (numericPart.split('.')[1] || '').length;
+
     let targetNumber = parseFloat(numericPart);
     if (isNaN(targetNumber)) return;
 
     // Scale according to suffix when present (so "$7.3M" -> 7.3 * 1e6)
     if (isCurrency) {
-        if (hasM) targetNumber = targetNumber * 1e6;
-        else if (hasK) targetNumber = targetNumber * 1e3;
+        if (!hasAlphabeticSuffix) {
+            if (hasM) targetNumber = targetNumber * 1e6;
+            else if (hasK) targetNumber = targetNumber * 1e3;
+        }
     }
 
     const duration = 2000;
@@ -202,12 +212,21 @@ function animateCounter(element) {
         if (isPercent) {
             element.textContent = Math.round(currentValue) + '%';
         } else if (isCurrency) {
-            // Use the global formatCurrency (defined in calculator.js) if available
-            try {
-                element.textContent = formatCurrency(Math.round(currentValue));
-            } catch (e) {
-                // Fallback
-                element.textContent = '$' + formatNumber(Math.round(currentValue));
+            if (hasAlphabeticSuffix) {
+                const scaledValue = decimalPlaces > 0
+                    ? (Math.round(currentValue * Math.pow(10, decimalPlaces)) / Math.pow(10, decimalPlaces))
+                        .toFixed(decimalPlaces)
+                        .replace(/\.0+$/, '')
+                    : Math.round(currentValue).toString();
+                element.textContent = prefixText + scaledValue + suffixText;
+            } else {
+                // Use the global formatCurrency (defined in calculator.js) if available
+                try {
+                    element.textContent = formatCurrency(Math.round(currentValue));
+                } catch (e) {
+                    // Fallback
+                    element.textContent = '$' + formatNumber(Math.round(currentValue));
+                }
             }
         } else if (hasK) {
             const valueInK = Math.round(currentValue / 1000);
@@ -218,6 +237,8 @@ function animateCounter(element) {
 
         if (progress < 1) {
             requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent = originalText;
         }
     }
 
