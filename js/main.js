@@ -25,8 +25,8 @@ const NAVIGATION_TEMPLATE = `
                     <a href="#" class="nav-link dropdown-trigger">Company</a>
                     <div class="dropdown-menu">
                         <a href="roadmap.html" class="dropdown-item">Roadmap</a>
-                        <a href="careers.html" class="dropdown-item">Careers</a>
                         <a href="contact.html" class="dropdown-item">Contact</a>
+                        <a href="careers.html" class="dropdown-item">Careers</a>
                         <a href="references.html" class="dropdown-item">References</a>
                     </div>
                 </div>
