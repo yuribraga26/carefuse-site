@@ -2115,12 +2115,14 @@ img, svg, video {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-    align-items: flex-start;
+    align-items: stretch;
 }
 
 .pdf-actions {
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .pdf-wrapper {

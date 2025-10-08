@@ -38,7 +38,7 @@
                 <div class="section-header">
                     <span class="section-badge">Impact &amp; ROI</span>
                     <h2 class="section-title">Financial Impact Calculator</h2>
-                    <p class="section-description">Estimate the financial impact of CareFuse on your utilization management operations.</p>
+                    <p class="section-description">Model the payer savings unlocked when CareFuse prevents low-benefit hip and knee surgeries by redirecting members before authorization.</p>
                 </div>
 
                 <div class="roi-calculator">
@@ -52,15 +52,15 @@
                         <div class="input-group">
                             <label for="approval-rate">Baseline Approval Rate (%)</label>
                             <p class="input-description">Percentage of requests currently approved for surgery before introducing CareFuse decision support.</p>
-                            <input type="range" id="approval-rate" min="60" max="95" value="85">
+                            <input type="range" id="approval-rate" min="60" max="100" value="85">
                             <span class="range-value">85%</span>
                         </div>
 
                         <div class="input-group">
                             <label for="low-benefit">% Predicted Low Benefit</label>
-                            <p class="input-description">Share of approved members that the CareFuse model flags as unlikely to meet MCID based on their clinical profile.</p>
-                            <input type="range" id="low-benefit" min="10" max="40" value="25">
-                            <span class="range-value">25%</span>
+                            <p class="input-description">Share of approved members that the CareFuse model flags as unlikely to meet MCID based on their clinical profile. Locked at 30% using CareFuse's validation benchmarks.</p>
+                            <input type="range" id="low-benefit" min="30" max="30" value="30" disabled>
+                            <span class="range-value">30%</span>
                         </div>
 
                         <div class="input-group">
@@ -75,7 +75,7 @@
                             <div class="result-icon">
                                 <i class="fas fa-calculator"></i>
                             </div>
-                            <div class="result-value" id="avoided-surgeries">38</div>
+                            <div class="result-value" id="avoided-surgeries">344</div>
                             <div class="result-label">Avoided Surgeries/Year</div>
                             <p class="result-description">Projected count of TKAs prevented by redirecting low-benefit members to enhanced conservative care pathways.</p>
                         </div>
@@ -84,7 +84,7 @@
                             <div class="result-icon">
                                 <i class="fas fa-dollar-sign"></i>
                             </div>
-                            <div class="result-value" id="medical-savings">$950,000</div>
+                            <div class="result-value" id="medical-savings">$9.6M</div>
                             <div class="result-label">Annual Medical Savings</div>
                             <p class="result-description">Estimated reduction in direct medical spend by avoiding surgeries and associated acute and post-acute services.</p>
                         </div>
@@ -93,7 +93,7 @@
                             <div class="result-icon">
                                 <i class="fas fa-clock"></i>
                             </div>
-                            <div class="result-value" id="admin-savings">$75,000</div>
+                            <div class="result-value" id="admin-savings">$57k</div>
                             <div class="result-label">Admin Savings</div>
                             <p class="result-description">Combined peer-to-peer and overturn cost reductions from fewer disputed cases and streamlined reviews.</p>
                         </div>
@@ -102,11 +102,22 @@
                             <div class="result-icon">
                                 <i class="fas fa-chart-line"></i>
                             </div>
-                            <div class="result-value" id="net-roi">$1,025,000</div>
+                            <div class="result-value" id="net-roi">$9.5M</div>
                             <div class="result-label">Net Annual ROI</div>
                             <p class="result-description">Net financial benefit after accounting for CareFuse licensing and implementation expenses.</p>
                         </div>
                     </div>
+                </div>
+
+                <div class="calculator-assumptions">
+                    <h3>Model assumptions</h3>
+                    <p>CareFuse surfaces members who are unlikely to achieve clinically meaningful improvement so payers can redirect them to conservative care instead of authorizing a low-benefit procedure.</p>
+                    <ul>
+                        <li><strong>Complication risk:</strong> 7.8% of arthroplasty episodes experience serious inpatient complications that add $14,800 in incremental spend per event.<sup class="footnote"><a href="references.html#ref24">[24]</a></sup></li>
+                        <li><strong>Readmission burden:</strong> 4.2% of cases trigger a 30-day readmission with an average $13,400 medical cost.<sup class="footnote"><a href="references.html#ref25">[25]</a></sup></li>
+                        <li><strong>Revision exposure:</strong> 2.2% of index surgeries require an unplanned revision within the first year at an average cost of $49,360.<sup class="footnote"><a href="references.html#ref26">[26]</a></sup></li>
+                    </ul>
+                    <p>The calculator applies your baseline episode cost plus the expected value of these downstream events to every avoided surgery, assumes 75% of low-benefit approvals can be redirected, and keeps the flagged member rate fixed at 30% based on CareFuse model benchmarks.</p>
                 </div>
 
             </div>

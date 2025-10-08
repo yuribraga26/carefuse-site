@@ -1563,6 +1563,40 @@ body {
     flex-wrap: wrap;
 }
 
+.calculator-assumptions {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    padding: 2rem;
+    line-height: 1.6;
+}
+
+.calculator-assumptions h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.calculator-assumptions p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.calculator-assumptions ul {
+    margin: 0 0 1rem 1.25rem;
+    padding: 0;
+    color: var(--text-secondary);
+}
+
+.calculator-assumptions li {
+    margin-bottom: 0.75rem;
+}
+
+.calculator-assumptions strong {
+    color: var(--text-primary);
+}
+
 /* CTA Section */
 .cta-section {
     padding: 80px 0;
