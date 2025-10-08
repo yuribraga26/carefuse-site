@@ -45,23 +45,27 @@
                     <div class="calculator-inputs">
                         <div class="input-group">
                             <label for="monthly-volume">Monthly TKA/THA PA Volume</label>
+                            <p class="input-description">Average number of hip and knee prior authorization requests your utilization management team processes each month.</p>
                             <input type="number" id="monthly-volume" value="150" min="1">
                         </div>
 
                         <div class="input-group">
                             <label for="approval-rate">Baseline Approval Rate (%)</label>
+                            <p class="input-description">Percentage of requests currently approved for surgery before introducing CareFuse decision support.</p>
                             <input type="range" id="approval-rate" min="60" max="95" value="85">
                             <span class="range-value">85%</span>
                         </div>
 
                         <div class="input-group">
                             <label for="low-benefit">% Predicted Low Benefit</label>
+                            <p class="input-description">Share of approved members that the CareFuse model flags as unlikely to meet MCID based on their clinical profile.</p>
                             <input type="range" id="low-benefit" min="10" max="40" value="25">
                             <span class="range-value">25%</span>
                         </div>
 
                         <div class="input-group">
                             <label for="episode-cost">Average Episode Cost ($)</label>
+                            <p class="input-description">Total payer spend per surgical episode, including facility, professional, and post-acute costs.</p>
                             <input type="number" id="episode-cost" value="25000" min="10000">
                         </div>
                     </div>
@@ -73,6 +77,7 @@
                             </div>
                             <div class="result-value" id="avoided-surgeries">38</div>
                             <div class="result-label">Avoided Surgeries/Year</div>
+                            <p class="result-description">Projected count of TKAs prevented by redirecting low-benefit members to enhanced conservative care pathways.</p>
                         </div>
 
                         <div class="result-card">
@@ -81,6 +86,7 @@
                             </div>
                             <div class="result-value" id="medical-savings">$950,000</div>
                             <div class="result-label">Annual Medical Savings</div>
+                            <p class="result-description">Estimated reduction in direct medical spend by avoiding surgeries and associated acute and post-acute services.</p>
                         </div>
 
                         <div class="result-card">
@@ -89,6 +95,7 @@
                             </div>
                             <div class="result-value" id="admin-savings">$75,000</div>
                             <div class="result-label">Admin Savings</div>
+                            <p class="result-description">Combined peer-to-peer and overturn cost reductions from fewer disputed cases and streamlined reviews.</p>
                         </div>
 
                         <div class="result-card">
@@ -97,6 +104,7 @@
                             </div>
                             <div class="result-value" id="net-roi">$1,025,000</div>
                             <div class="result-label">Net Annual ROI</div>
+                            <p class="result-description">Net financial benefit after accounting for CareFuse licensing and implementation expenses.</p>
                         </div>
                     </div>
                 </div>
