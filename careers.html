@@ -9,56 +9,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" type="image/png" href="images/carefuse-logo.png">
 </head>
-<body>
-    <nav class="main-nav">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <a href="index.html" class="nav-logo-link">
-                    <img src="images/carefuse-logo.png" alt="CareFuse" class="logo-image">
-                    <span class="logo-text">CareFuse</span>
-                </a>
-            </div>
-            
-            <div class="nav-links">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="problem.html" class="nav-link">Problem</a>
-                <a href="solution.html" class="nav-link">Solution</a>
-                <a href="evidence.html" class="nav-link">Evidence</a>
-                <a href="application.html" class="nav-link">Application</a>
-
-                <div class="nav-dropdown">
-                    <a href="#" class="nav-link dropdown-trigger">Implementation</a>
-                    <div class="dropdown-menu">
-                        <a href="platform.html" class="dropdown-item">Platform</a>
-                        <a href="compliance.html" class="dropdown-item">Compliance</a>
-                        <a href="impact.html" class="dropdown-item">Impact</a>
-                    </div>
-                </div>
-
-                <a href="roadmap.html" class="nav-link">Roadmap</a>
-
-                <div class="nav-dropdown">
-                    <a href="#" class="nav-link dropdown-trigger active">Company</a>
-                    <div class="dropdown-menu">
-                        <a href="careers.html" class="dropdown-item active">Careers</a>
-                        <a href="contact.html" class="dropdown-item">Contact</a>
-                        <a href="references.html" class="dropdown-item">References</a>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="nav-actions">
-                <button class="btn btn-primary" onclick="openDemo()">Request Demo</button>
-                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+<body class="teal-theme">
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-animation">
+            <img src="images/carefuse-logo.png" alt="CareFuse logo" class="loading-logo">
+            <div class="loading-text">CareFuse</div>
+            <div class="loading-subtitle">Loading clinical platform...</div>
         </div>
-    </nav>
+    </div>
 
-    <main class="careers-page">
-        <section class="page-hero">
+    <div id="main-content" class="main-content">
+        <div id="navigation-placeholder"></div>
+
+        <main class="careers-page">
+            <section class="page-hero">
             <div class="section-container">
                 <div class="page-header">
                     <h1 class="page-title">Careers at CareFuse</h1>
@@ -153,40 +117,17 @@
                 </div>
             </div>
         </section>
-    </main>
+        </main>
 
-    <footer class="main-footer">
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="images/carefuse-logo.png" alt="CareFuse" class="footer-logo-image">
-                        <span class="footer-logo-text">CareFuse</span>
-                    </div>
-                    <p class="footer-description">Transparent AI for evidence-based prior authorization in orthopedic care.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <ul class="footer-links">
-                        <li><a href="careers.html">Careers</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>yuri.braga@carefuseai.com</p>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 CareFuse. All rights reserved.</p>
-            </div>
+        <div class="next-section-nav">
+            <a href="references.html" class="btn btn-secondary">Next: References</a>
         </div>
-    </footer>
+
+        <div id="footer-placeholder"></div>
+    </div>
 
     <script src="js/main.js"></script>
+    <script src="js/calculator.js"></script>
 </body>
 </html>
 

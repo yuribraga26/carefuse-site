@@ -1862,8 +1862,10 @@ img, svg, video {
 
 .nav-links {
     display: flex;
-    gap: 24px;
     align-items: center;
+    justify-content: space-evenly;
+    flex: 1;
+    gap: 0;
 }
 
 .nav-actions {
@@ -2020,17 +2022,6 @@ img, svg, video {
     font-style: italic;
 }
 
-.see-methods-link {
-    color: var(--primary-teal);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-}
-
-.see-methods-link:hover {
-    text-decoration: underline;
-}
-
 /* Methods Section */
 .methods-section {
     margin: 3rem 0;
@@ -2071,6 +2062,7 @@ img, svg, video {
         padding: 1rem;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         gap: 1rem;
+        margin: 0;
     }
     
     .nav-links.mobile-open {
