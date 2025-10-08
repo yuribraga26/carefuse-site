@@ -1979,12 +1979,17 @@ body {
     z-index: 1000;
     opacity: 0;
     pointer-events: none;
+    top: 0;
+    left: 0;
+    transform: translate3d(-9999px, -9999px, 0);
+    will-change: transform, opacity;
     transition: var(--transition-fast);
 }
 
 .tooltip.show {
     opacity: 1;
     pointer-events: auto;
+    transform: translate3d(0, 0, 0);
 }
 
 .tooltip-content h4 {
