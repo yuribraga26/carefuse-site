@@ -33,7 +33,10 @@ const NAVIGATION_TEMPLATE = `
             </div>
 
             <div class="nav-actions">
-                <button class="btn btn-primary" onclick="openDemo()">Request Demo</button>
+                <button class="btn btn-primary demo-button" onclick="openDemo()" aria-label="Request Demo">
+                    <span class="btn-label-full">Request Demo</span>
+                    <span class="btn-label-short">Demo</span>
+                </button>
                 <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
                     <i class="fas fa-bars"></i>
                 </button>

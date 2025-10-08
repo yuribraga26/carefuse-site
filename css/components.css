@@ -2104,6 +2104,30 @@ img, svg, video {
     }
 }
 
+/* Nav demo button: show short label on small screens to prevent overlap */
+.demo-button .btn-label-short {
+    display: none;
+}
+
+.demo-button .btn-label-full {
+    display: inline;
+}
+
+@media (max-width: 480px) {
+    .demo-button .btn-label-short {
+        display: inline;
+    }
+    .demo-button .btn-label-full {
+        display: none;
+    }
+
+    /* Optionally reduce button padding on very small screens */
+    .demo-button {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.95rem;
+    }
+}
+
 /* PRO-PM PDF viewer styles */
 .problem-pdf-section, #pro-pm {
     margin-top: 2rem;
