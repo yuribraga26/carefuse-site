@@ -1,10 +1,20 @@
 // CareFuse ROI Calculator
 
+// Clinical risk assumptions for avoided surgeries
+const riskAssumptions = {
+    complicationRate: 0.078, // 7.8%
+    complicationCost: 14800,
+    readmissionRate: 0.042, // 4.2%
+    readmissionCost: 13400,
+    revisionRate: 0.022, // 2.2%
+    revisionCost: 49360
+};
+
 // Calculator state
 let calculatorData = {
     monthlyVolume: 150,
     approvalRate: 85,
-    lowBenefit: 25,
+    lowBenefit: 30,
     episodeCost: 25000,
     adminCostPerCase: 150,
     p2pCostPerCase: 300,
@@ -82,7 +92,7 @@ function calculateROI() {
 function performROICalculation(data) {
     // Annual volume
     const annualVolume = data.monthlyVolume * 12;
-    
+
     // Current approved cases
     const currentApprovedCases = annualVolume * (data.approvalRate / 100);
     
@@ -92,10 +102,18 @@ function performROICalculation(data) {
     // Avoided surgeries (assuming 75% of low benefit cases can be avoided)
     const avoidanceRate = 0.75;
     const avoidedSurgeries = Math.round(lowBenefitCases * avoidanceRate);
-    
+
+    // Expected complication/readmission/revision load avoided per surgery
+    const expectedComplicationCost = riskAssumptions.complicationRate * riskAssumptions.complicationCost;
+    const expectedReadmissionCost = riskAssumptions.readmissionRate * riskAssumptions.readmissionCost;
+    const expectedRevisionCost = riskAssumptions.revisionRate * riskAssumptions.revisionCost;
+    const expectedRiskCostPerCase = expectedComplicationCost + expectedReadmissionCost + expectedRevisionCost;
+
+    // Risk-adjusted medical savings
+    const riskAdjustedEpisodeCost = data.episodeCost + expectedRiskCostPerCase;
     // Medical cost savings
-    const medicalSavings = avoidedSurgeries * data.episodeCost;
-    
+    const medicalSavings = avoidedSurgeries * riskAdjustedEpisodeCost;
+
     // Administrative savings
     // Reduced P2P reviews (assume 30% reduction in P2P cases)
     const currentP2PCases = annualVolume * 0.20; // 20% of cases go to P2P
@@ -142,6 +160,11 @@ function performROICalculation(data) {
             currentApprovedCases,
             lowBenefitCases,
             avoidanceRate,
+            expectedComplicationCost,
+            expectedReadmissionCost,
+            expectedRevisionCost,
+            expectedRiskCostPerCase,
+            riskAdjustedEpisodeCost,
             p2pSavings,
             overturnSavings,
             implementationCost,
@@ -174,7 +197,11 @@ function updateResultCard(elementId, value) {
     if (element) {
         // Set the text immediately so any intersection observers/animations
         // see the correctly formatted value (e.g., "$7.3M") on first render.
-        element.textContent = value;
+        if (typeof value === 'number' && Number.isFinite(value)) {
+            element.textContent = value.toLocaleString();
+        } else {
+            element.textContent = value;
+        }
 
         // Trigger animation classes for visual feedback (no text change)
         animateValueChange(element, value);
@@ -252,6 +279,8 @@ function generateROICSV(inputData, results) {
         ['Baseline Approval Rate', inputData.approvalRate + '%'],
         ['Predicted Low Benefit %', inputData.lowBenefit + '%'],
         ['Average Episode Cost', '$' + inputData.episodeCost.toLocaleString()],
+        ['Risk-Adjusted Episode Cost', '$' + Math.round(results.breakdown.riskAdjustedEpisodeCost).toLocaleString()],
+        ['Expected Complication/Readmission/Revision Load per Case', '$' + Math.round(results.breakdown.expectedRiskCostPerCase).toLocaleString()],
         ['', ''],
         ['CALCULATED RESULTS', ''],
         ['Annual Volume', results.breakdown.annualVolume],
@@ -266,6 +295,9 @@ function generateROICSV(inputData, results) {
         ['Payback Period', formatMonths(results.paybackPeriod)],
         ['', ''],
         ['DETAILED BREAKDOWN', ''],
+        ['Expected Complication Cost per Case', '$' + Math.round(results.breakdown.expectedComplicationCost).toLocaleString()],
+        ['Expected Readmission Cost per Case', '$' + Math.round(results.breakdown.expectedReadmissionCost).toLocaleString()],
+        ['Expected Revision Cost per Case', '$' + Math.round(results.breakdown.expectedRevisionCost).toLocaleString()],
         ['P2P Review Savings', '$' + results.breakdown.p2pSavings.toLocaleString()],
         ['Overturn Cost Savings', '$' + results.breakdown.overturnSavings.toLocaleString()],
         ['Avoidance Rate Applied', (results.breakdown.avoidanceRate * 100) + '%']
@@ -358,6 +390,8 @@ function generateReportContent(inputData, results) {
                 <li>30% reduction in denial overturn cases</li>
                 <li>$2,000 average cost per overturn case</li>
                 <li>$300 average cost per P2P review</li>
+                <li>Risk-adjusted savings include expected complication (7.8%), readmission (4.2%), and revision (2.2%) costs</li>
+                <li>CareFuse model flags 30% of approved cases as low-benefit for conservative care navigation</li>
             </ul>
         </section>
         
