@@ -104,7 +104,7 @@ function performROICalculation(data) {
     
     // Reduced overturn costs (legal and administrative)
     const currentOverturns = (annualVolume - currentApprovedCases) * (data.overturnRate / 100);
-    const reducedOverturns = currentOverturns * 0.40; // 40% reduction in overturns
+    const reducedOverturns = currentOverturns * 0.30; // 30% reduction in overturns
     const overturnSavings = reducedOverturns * 2000; // $2000 per overturn case
     
     // Total administrative savings
@@ -355,7 +355,7 @@ function generateReportContent(inputData, results) {
             <ul>
                 <li>75% of identified low-benefit cases can be successfully avoided</li>
                 <li>30% reduction in P2P review cases</li>
-                <li>40% reduction in denial overturn cases</li>
+                <li>30% reduction in denial overturn cases</li>
                 <li>$2,000 average cost per overturn case</li>
                 <li>$300 average cost per P2P review</li>
             </ul>

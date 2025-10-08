@@ -287,7 +287,7 @@
                 <div class="section-header">
                     <div class="section-badge">Clinical Evidence</div>
                     <h2 class="section-title">Validation &amp; Performance</h2>
-                    <p class="section-description">At CareFuse, we've built a calibrated, explainable logistic-regression model (OAI: demographics + WOMAC) that estimates a TKA patient's probability of achieving MCID and generates a counterfactual for conservative care using propensity-score weighting. Across 50 multi-seed holdout splits it achieves AUC ≈ 0.93, with transparent calibration/thresholding and SHAP explanations suited for clinical review.</p>
+                    <p class="section-description">At CareFuse, we've built a calibrated, explainable binary classification model (OAI: demographics + WOMAC) that estimates a TKA patient's probability of achieving MCID and generates a counterfactual for conservative care using propensity-score weighting. Across 50 multi-seed holdout splits it achieves AUC ≈ 0.93, with transparent calibration/thresholding and SHAP explanations suited for clinical review.</p>
                 </div>
 
                 <div class="data-inputs-callout">
@@ -334,7 +334,7 @@
             <div id="methods" class="methods-section">
                 <h3>Methods</h3>
                 <div class="methods-content">
-                    <p>Our model uses logistic regression with demographics and WOMAC scores from the OAI dataset. We completed a live pilot with Hapvida (15.7M policyholders) to demonstrate feasibility and workflow integration. In the U.S., our pilot would train a new model on your de-identified data using the same pipeline and deploy a secure, metered API with audit logging.</p>
+                    <p>Our binary classification model uses demographics and WOMAC scores from the OAI dataset. We completed a live pilot with Hapvida (15.7M policyholders) to demonstrate feasibility and workflow integration. In the U.S., our pilot would train a new model on your de-identified data using the same pipeline and deploy a secure, metered API with audit logging.</p>
                     <p>CareFuse is represented by Gunderson Dettmer, and our product is built under the FDA non-device CDS exemption.</p>
                     <p>We also follow machine learning best practices, including strict train/test data splits, holdout validation, and transparent metric computation to ensure trustworthy, reproducible results.</p>
                 </div>
